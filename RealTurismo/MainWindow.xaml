@@ -7,13 +7,14 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Turismo Real" Height="450" Width="800">
+        Title="" Height="450" Width="800">
+    
     <Grid>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Center" Margin="0,106,0,0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" FontSize="18" Height="36"/>
-        <PasswordBox x:Name="pbContrasenia" HorizontalAlignment="Center" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" VerticalAlignment="Top" Width="293" Height="38" FontSize="18" Margin="0,196,0,0"/>
-        <Button x:Name="btnIngresar" Content="Iniciar Sesión" HorizontalAlignment="Center" Height="40" Margin="0,254,0,0" VerticalAlignment="Top" Width="293" FontSize="18"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="254,72,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="254,162,0,0" VerticalAlignment="Top" FontSize="18"/>
-
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Margin="261,161,0,0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontSize="18" Height="36"/>
+        <PasswordBox x:Name="pbContrasenia" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" VerticalAlignment="Top" Width="294" Height="38" FontSize="18" Margin="261,251,0,0"/>
+        <Button x:Name="btnIngresar" Content="Iniciar Sesión" HorizontalAlignment="Left" Height="40" Margin="261,309,0,0" VerticalAlignment="Top" Width="294" FontSize="18"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="275,217,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Controls:Tile Margin="0,0,0,354" Width="800" Height="80" Background="#CC003A68"/>
     </Grid>
 </Controls:MetroWindow>

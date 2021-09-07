@@ -11,25 +11,25 @@
         Icon="Imagenes/informe.png">
 
     <Grid>
-        <Button HorizontalAlignment="Left" Height="182" Margin="433,217,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
+        <Button HorizontalAlignment="Left" Height="182" Margin="421,216,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
             <StackPanel>
                 <Image Source="/Imagenes/mano.png" Height="121" Width="109" VerticalAlignment="Stretch"></Image>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center"><Run Text="Egresos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Height="182" Margin="433,28,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FF80AE1C" BorderBrush="#FFEE2828">
+        <Button HorizontalAlignment="Left" Height="182" Margin="421,27,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FF80AE1C" BorderBrush="#FFEE2828">
             <StackPanel>
                 <Image Source="/Imagenes/monedas.png" Height="115" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center"><Run Text="Ingresos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Height="182" Margin="168,28,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
+        <Button HorizontalAlignment="Left" Height="182" Margin="156,27,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
             <StackPanel>
                 <Image Source="/Imagenes/edificio-de-oficinas.png" Height="115" Width="99"/>
-                <TextBlock Foreground="White" FontSize="18" TextAlignment="Center"><Run Text="Departamentos"/></TextBlock>
+                <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Normal"><Run Text="Departamentos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Height="182" Margin="168,217,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
+        <Button HorizontalAlignment="Left" Height="182" Margin="156,216,0,0" VerticalAlignment="Top" Width="198" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#FFAE1C1C" BorderBrush="#FFEE2828">
             <StackPanel>
                 <Image Source="/Imagenes/informe.png" Height="115" Width="99" Stretch="Uniform"></Image>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center"><Run Text="Informes"/></TextBlock>
