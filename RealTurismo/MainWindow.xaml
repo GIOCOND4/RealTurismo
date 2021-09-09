@@ -15,6 +15,6 @@
         <Button x:Name="btnIngresar" Content="Iniciar Sesión" HorizontalAlignment="Left" Height="40" Margin="261,309,0,0" VerticalAlignment="Top" Width="294" FontSize="18"/>
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="275,217,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Controls:Tile Margin="0,0,0,354" Width="800" Height="80" Background="LimeGreen"/>
+        <Controls:Tile Margin="0,0,0,354" Width="800" Height="80" Background="#CC003A68"/>
     </Grid>
 </Controls:MetroWindow>
