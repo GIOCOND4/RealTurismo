@@ -12,7 +12,7 @@
     <Grid>
         <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Margin="261,161,0,0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontSize="18" Height="36"/>
         <PasswordBox x:Name="pbContrasenia" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" VerticalAlignment="Top" Width="294" Height="38" FontSize="18" Margin="261,251,0,0"/>
-        <Button x:Name="btnIngresar" Content="Iniciar Sesión" HorizontalAlignment="Left" Height="40" Margin="261,309,0,0" VerticalAlignment="Top" Width="294" FontSize="18"/>
+        <Button x:Name="btnIngresar" Content="Iniciar Sesión" HorizontalAlignment="Left" Height="40" Margin="261,309,0,0" VerticalAlignment="Top" Width="294" FontSize="18" Click="btnIngresar_Click"/>
         <Label Content="Usuario" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="275,217,0,0" VerticalAlignment="Top" FontSize="18"/>
         <Controls:Tile Margin="0,0,0,354" Width="800" Height="80" Background="LimeGreen"/>

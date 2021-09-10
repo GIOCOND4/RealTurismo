@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using Oracle.ManagedDataAccess.Client;
 
 namespace RealTurismo
 {
@@ -25,6 +26,9 @@ namespace RealTurismo
             InitializeComponent();
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
