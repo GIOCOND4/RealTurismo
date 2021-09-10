@@ -37,7 +37,6 @@ namespace RealTurismo
             string Usuario = txtUsuario.Text;
             string Contrasenia = pbContrasenia.Password;
             Contrasenia = Encriptado.GetSHA256(Contrasenia);
-            //ConexionOracle.ConexionDb();
 
             //el servicename es el nombre de la base de datos
             //por defecto es orcl
@@ -51,15 +50,10 @@ namespace RealTurismo
             // Conecta
             conexionOracle.Open();
 
-
-            //string query = $"SELECT * FROM login WHERE USUARIO = '{Usuario}' AND CONTRASENIA = '{Contrasenia}'";
             string query = $"SELECT l.USUARIO,l.CONTRASENIA,pl.descripcion FROM login l " +
-                            "Inner Join persona p ON p.id_persona = l.id_persona "+
+                            "Inner Join persona p ON p.id_persona = l.id_persona " +
                             "Inner Join perfil pl On pl.id_perfil = p.id_perfil " +
-                            "WHERE l.usuario = '"+Usuario+"' AND l.contrasenia = '"+Contrasenia+"' " +
-                            "AND pl.DESCRIPCION = 'Administrador' " +
-                            "OR pl.DESCRIPCION = 'Empleado'";
-            MessageBox.Show(query);
+                            "WHERE l.usuario = '" + Usuario + "' AND l.contrasenia = '" + Contrasenia + "'";
 
             OracleCommand Comando = new OracleCommand(query, conexionOracle);
 
@@ -67,12 +61,31 @@ namespace RealTurismo
 
             if(lector.Read())
             {
-                Menu menu = new Menu();
-                menu.Show();
+                if(lector.GetString(2) == "Administrador"){
+                    txtUsuario.Text = "";
+                    pbContrasenia.Password = "";
+                    MenuAdministrador menuAdmin = new MenuAdministrador();
+                    menuAdmin.ShowDialog();
+                }
+                else if (lector.GetString(2) == "Empleado")
+                {
+                    txtUsuario.Text = "";
+                    pbContrasenia.Password = "";
+                    Menu menu = new Menu();
+                    menu.ShowDialog();
+                }
+                else
+                {
+                    txtUsuario.Text = "";
+                    pbContrasenia.Password = "";
+                    MessageBox.Show("Usted no esta autorizado para ingresar al sistema");
+                }
             }
             else
             {
-                MessageBox.Show("Usted no esta autorizado para ingresar al sistema");
+                txtUsuario.Text = "";
+                pbContrasenia.Password = "";
+                MessageBox.Show("Las credenciales de usuario y/o contraseña son incorrectas");
             }
             
             

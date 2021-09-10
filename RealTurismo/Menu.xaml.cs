@@ -26,5 +26,10 @@ namespace RealTurismo
             InitializeComponent();
         }
 
+        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            MantDepartamento depto = new MantDepartamento();
+            depto.Show();
+        }
     }
 }
