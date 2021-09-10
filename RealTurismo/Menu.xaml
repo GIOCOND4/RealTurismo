@@ -29,7 +29,7 @@
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Departamentos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnInformes" HorizontalAlignment="Left" Height="170" Margin="156,217,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LimeGreen" BorderBrush="{x:Null}" >
+        <Button x:Name="btnInformes" HorizontalAlignment="Left" Height="170" Margin="156,217,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LimeGreen" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/informe.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Informes"/></TextBlock>
