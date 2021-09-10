@@ -36,6 +36,7 @@ namespace RealTurismo
         {
             string Usuario = txtUsuario.Text;
             string Contrasenia = pbContrasenia.Password;
+            Contrasenia = Encriptado.GetSHA256(Contrasenia);
             //ConexionOracle.ConexionDb();
 
             //el servicename es el nombre de la base de datos
@@ -49,7 +50,15 @@ namespace RealTurismo
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
-            string query = $"SELECT * FROM login WHERE USUARIO = '{Usuario}' AND CONTRASENIA = '{Contrasenia}'";
+
+
+            //string query = $"SELECT * FROM login WHERE USUARIO = '{Usuario}' AND CONTRASENIA = '{Contrasenia}'";
+            string query = $"SELECT l.USUARIO,l.CONTRASENIA,pl.descripcion FROM login l " +
+                            "Inner Join persona p ON p.id_persona = l.id_persona "+
+                            "Inner Join perfil pl On pl.id_perfil = p.id_perfil " +
+                            "WHERE l.usuario = '"+Usuario+"' AND l.contrasenia = '"+Contrasenia+"' " +
+                            "AND pl.DESCRIPCION = 'Administrador' " +
+                            "OR pl.DESCRIPCION = 'Empleado'";
             MessageBox.Show(query);
 
             OracleCommand Comando = new OracleCommand(query, conexionOracle);
@@ -63,7 +72,7 @@ namespace RealTurismo
             }
             else
             {
-                MessageBox.Show("Error,el usuario no se encuentra en la base de datos");
+                MessageBox.Show("Usted no esta autorizado para ingresar al sistema");
             }
             
             
