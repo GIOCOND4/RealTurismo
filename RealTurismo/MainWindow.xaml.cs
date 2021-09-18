@@ -66,6 +66,7 @@ namespace RealTurismo
                     pbContrasenia.Password = "";
                     MenuAdministrador menuAdmin = new MenuAdministrador();
                     menuAdmin.ShowDialog();
+                    conexionOracle.Close();
                 }
                 else if (lector.GetString(2) == "Empleado")
                 {
@@ -73,12 +74,14 @@ namespace RealTurismo
                     pbContrasenia.Password = "";
                     Menu menu = new Menu();
                     menu.ShowDialog();
+                    conexionOracle.Close();
                 }
                 else
                 {
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
                     MessageBox.Show("Usted no esta autorizado para ingresar al sistema");
+                    conexionOracle.Close();
                 }
             }
             else
@@ -86,6 +89,7 @@ namespace RealTurismo
                 txtUsuario.Text = "";
                 pbContrasenia.Password = "";
                 MessageBox.Show("Las credenciales de usuario y/o contraseña son incorrectas");
+                conexionOracle.Close();
             }
             
             
