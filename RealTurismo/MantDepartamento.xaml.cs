@@ -60,7 +60,7 @@ namespace RealTurismo
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
-
+ 
             
             string region = cbbRegion.SelectedItem.ToString();
             //cargar provincia
@@ -75,6 +75,31 @@ namespace RealTurismo
             {
                 cbbProvincia.Items.Add(lector2["Descripcion"].ToString());
             }
+        }
+        
+        private void cbbProvincia_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*cbbComuna.DataContext = null;
+            cbbComuna.Items.Clear();
+
+            //Crear conexion
+            OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+            // Conecta
+            conexionOracle.Open();
+
+            string provincia = cbbProvincia.SelectedItem.ToString();
+            //cargar comunas
+            string query3 = $"select c.descripcion from comuna c "+
+                            "inner join provincia p "+
+                            "on p.id_provincia = c.iid_provincia "+
+                            "where p.descripcion = '"+ provincia + "'";
+            MessageBox.Show(query3);
+            OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
+            OracleDataReader lector3 = Comando3.ExecuteReader();
+            while (lector3.Read())
+            {
+                cbbComuna.Items.Add(lector3["Descripcion"].ToString());
+            }*/
         }
     }
 }
