@@ -52,14 +52,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <CheckBox x:Name="cbDisponible" Content="" HorizontalAlignment="Left" Margin="348,337,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbPersonas" Content="" HorizontalAlignment="Left" Margin="348,301,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbPersonas" Content="" HorizontalAlignment="Left" Margin="472,452,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <CheckBox x:Name="cbBalcon" Content="" HorizontalAlignment="Left" Margin="348,202,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbHabitaciones" Content="" HorizontalAlignment="Left" Margin="348,237,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbBanios" Content="" HorizontalAlignment="Left" Margin="348,269,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbHabitaciones" Content="" HorizontalAlignment="Left" Margin="413,452,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbBanios" Content="" HorizontalAlignment="Left" Margin="442,450,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <TextBox x:Name="txtIdDepartamento" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese ID Departamento" Height="28" Margin="413,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Height="32" Margin="413,62,0,0" VerticalAlignment="Top" Width="143" FontSize="16" RenderTransformOrigin="0.494,0.415"/>
         <Button Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="635,96,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="413,368,0,0" VerticalAlignment="Top" Width="109"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="413,368,0,0" VerticalAlignment="Top" Width="109" Click="btnAgregar_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="532,368,0,0" VerticalAlignment="Top" Width="110"/>
         <Button Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="652,368,0,0" VerticalAlignment="Top" Width="109"/>
         <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="30,368,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
@@ -74,5 +74,8 @@
         <Label Content="Región" HorizontalAlignment="Left" Margin="141,380,0,0" VerticalAlignment="Top" Width="84"/>
         <Label Content="Provincia" HorizontalAlignment="Left" Margin="141,410,0,0" VerticalAlignment="Top" Width="84"/>
         <Label Content="Comuna" HorizontalAlignment="Left" Margin="141,440,0,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="txtNHabitaciones"  HorizontalAlignment="Left" Margin="344,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtNBanios"  HorizontalAlignment="Left" Margin="344,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtNPersonas"  HorizontalAlignment="Left" Margin="344,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56"/>
     </Grid>
 </Controls:MetroWindow>
