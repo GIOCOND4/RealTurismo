@@ -35,7 +35,7 @@
         <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nº Piso" Height="28" Margin="155,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="228" Margin="413,130,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nombre"/>
+                <DataGridTextColumn x:Name="dgNombre" Header="Nombre"/>
                 <DataGridTextColumn Header="Dirección"/>
                 <DataGridTextColumn Header="Costo"/>
                 <DataGridTextColumn Header="Piso"/>
@@ -58,7 +58,7 @@
         <CheckBox x:Name="cbBanios" Content="" HorizontalAlignment="Left" Margin="442,450,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <TextBox x:Name="txtIdDepartamento" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese ID Departamento" Height="28" Margin="413,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Height="32" Margin="413,62,0,0" VerticalAlignment="Top" Width="143" FontSize="16" RenderTransformOrigin="0.494,0.415"/>
-        <Button Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="635,96,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="635,96,0,0" VerticalAlignment="Top" Width="126" Click="btnBuscar_Click"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="413,368,0,0" VerticalAlignment="Top" Width="109" Click="btnAgregar_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="532,368,0,0" VerticalAlignment="Top" Width="110"/>
         <Button Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="652,368,0,0" VerticalAlignment="Top" Width="109"/>

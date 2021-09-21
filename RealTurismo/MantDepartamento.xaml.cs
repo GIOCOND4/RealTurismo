@@ -48,12 +48,14 @@ namespace RealTurismo
             {
                 cbbRegion.Items.Add(lector["Descripcion"].ToString());
             }
+            cbbRegion.SelectedIndex = 0;
 
-            
         }
 
         private void cbbRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cbbProvincia.DataContext = null;
+            cbbProvincia.Items.Clear();
             //Crear conexion
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
@@ -73,6 +75,8 @@ namespace RealTurismo
                 cbbProvincia.Items.Add(lector2["Descripcion"].ToString());
             }
             
+            cbbProvincia.SelectedItem = "";
+            
         }
         
         private void cbbProvincia_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -84,18 +88,23 @@ namespace RealTurismo
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
-            string provincia = cbbProvincia.SelectedItem.ToString();
-            //cargar comunas
-            string query3 = $"select c.descripcion from comuna c "+
-                            "inner join provincia p "+
-                            "on p.id_provincia = c.iid_provincia "+
-                            "where p.descripcion = '"+ provincia + "'";
-            OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
-            OracleDataReader lector3 = Comando3.ExecuteReader();
-            while (lector3.Read())
+            if(cbbProvincia.SelectedItem != null)
             {
-                cbbComuna.Items.Add(lector3["Descripcion"].ToString());
+                string provincia = cbbProvincia.SelectedItem.ToString();
+                //cargar comunas
+                string query3 = $"select c.descripcion from comuna c " +
+                                "inner join provincia p " +
+                                "on p.id_provincia = c.iid_provincia " +
+                                "where p.descripcion = '" + provincia + "'";
+                MessageBox.Show(query3);
+                OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
+                OracleDataReader lector3 = Comando3.ExecuteReader();
+                while (lector3.Read())
+                {
+                    cbbComuna.Items.Add(lector3["Descripcion"].ToString());
+                }
             }
+            
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -173,7 +182,28 @@ namespace RealTurismo
                 OracleDataReader CrearDepartamento = insertar.ExecuteReader();
                 if (CrearDepartamento.Read())
                 {
-                    MessageBox.Show("Se añadio departamento");
+                    MessageBox.Show("El departamento ha sido ingresado con exito");
+                    //colocador por motivos de prueba
+                    txtNombre.Text = "";
+                    txtDireccion.Text = "";
+                    txtCosto.Text = "";
+                    txtPiso.Text = "";
+                    cbCable.IsChecked = false;
+                    cbInternet.IsChecked = false;
+                    cbCalefaccion.IsChecked = false;
+                    cbAmoblado.IsChecked = false;
+                    cbAire.IsChecked = false;
+                    cbBalcon.IsChecked = false;
+                    txtNHabitaciones.Text = "";
+                    txtNBanios.Text = "";
+                    txtNPersonas.Text = "";
+                    cbDisponible.IsChecked = false;
+                    cbbComuna.DataContext = null;
+                    cbbComuna.Items.Clear();
+                    cbbProvincia.DataContext = null;
+                    cbbProvincia.Items.Clear();
+                    cbbRegion.SelectedIndex = 0;
+
                 }
 
                 //pordia añadir un commit
@@ -192,5 +222,33 @@ namespace RealTurismo
 
 
         }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string iddepto = txtIdDepartamento.Text;
+            //Crear conexion
+            OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+            // Conecta
+            conexionOracle.Open();
+            if(iddepto != "")
+            {
+                MessageBox.Show("Item En Contruccion");
+                conexionOracle.Close();
+
+            }
+            else
+            {
+                
+                /*string TodosLosId = "select * from departamento";
+                OracleCommand comando = new OracleCommand(TodosLosId, conexionOracle);
+                OracleDataAdapter da = new OracleDataAdapter(comando);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dgListadoDep.DataContext = dt;*/
+
+            }
+        }
+
+        
     }
 }
