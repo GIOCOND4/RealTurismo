@@ -33,23 +33,7 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="28" Margin="155,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nombre Descriptivo" Height="28" Margin="155,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nº Piso" Height="28" Margin="155,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="228" Margin="413,130,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
-            <DataGrid.Columns>
-                <DataGridTextColumn x:Name="dgNombre" Header="Nombre"/>
-                <DataGridTextColumn Header="Dirección"/>
-                <DataGridTextColumn Header="Costo"/>
-                <DataGridTextColumn Header="Piso"/>
-                <DataGridCheckBoxColumn Header="Cable"/>
-                <DataGridCheckBoxColumn Header="Internet"/>
-                <DataGridCheckBoxColumn Header="Calefacción"/>
-                <DataGridCheckBoxColumn Header="Amoblado"/>
-                <DataGridCheckBoxColumn Header="Aire Condicionado"/>
-                <DataGridCheckBoxColumn Header="Balcón"/>
-                <DataGridCheckBoxColumn Header="Nº Habitaciones"/>
-                <DataGridCheckBoxColumn Header="Nº Baños"/>
-                <DataGridCheckBoxColumn Header="Nº Personas"/>
-                <DataGridCheckBoxColumn Header="Disponible"/>
-            </DataGrid.Columns>
+        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="228" Margin="413,130,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke" SelectionChanged="dgListadoDep_SelectionChanged">
         </DataGrid>
         <CheckBox x:Name="cbDisponible" Content="" HorizontalAlignment="Left" Margin="348,337,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <CheckBox x:Name="cbPersonas" Content="" HorizontalAlignment="Left" Margin="472,452,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
