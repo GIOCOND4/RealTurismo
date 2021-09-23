@@ -31,7 +31,7 @@
         <CheckBox x:Name="cbActivo" Content="" HorizontalAlignment="Left" Margin="171,255,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
         <TextBox x:Name="txtNombreUsuario" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nombre Usuario" Height="25" Margin="171,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
         <TextBox x:Name="txtcontrasenia" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" Height="25" Margin="171,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="247" Margin="427,122,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
+        <DataGrid x:Name="dgListadoUsuario" HorizontalAlignment="Left" Height="247" Margin="427,122,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id Persona"/>
                 <DataGridTextColumn Header="Rut"/>
