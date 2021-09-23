@@ -49,6 +49,8 @@ namespace RealTurismo
                 cbbRegion.Items.Add(lector["Descripcion"].ToString());
             }
             cbbRegion.SelectedIndex = 0;
+            cbbProvincia.SelectedIndex = 0;
+            cbbComuna.SelectedIndex = 0;
 
         }
 
@@ -56,6 +58,7 @@ namespace RealTurismo
         {
             cbbProvincia.DataContext = null;
             cbbProvincia.Items.Clear();
+            
             //Crear conexion
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
@@ -74,11 +77,13 @@ namespace RealTurismo
             {
                 cbbProvincia.Items.Add(lector2["Descripcion"].ToString());
             }
-            
-            cbbProvincia.SelectedItem = "";
-            
+
+            cbbProvincia.SelectedIndex = 0;
+
+            //cbbProvincia.SelectedItem = "";
+
         }
-        
+
         private void cbbProvincia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             cbbComuna.DataContext = null;
@@ -96,7 +101,6 @@ namespace RealTurismo
                                 "inner join provincia p " +
                                 "on p.id_provincia = c.iid_provincia " +
                                 "where p.descripcion = '" + provincia + "'";
-                MessageBox.Show(query3);
                 OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
                 OracleDataReader lector3 = Comando3.ExecuteReader();
                 while (lector3.Read())
@@ -104,7 +108,8 @@ namespace RealTurismo
                     cbbComuna.Items.Add(lector3["Descripcion"].ToString());
                 }
             }
-            
+            cbbComuna.SelectedIndex = 0;
+
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
@@ -239,13 +244,6 @@ namespace RealTurismo
             else
             {
                 dgListadoDep.ItemsSource = ListarDepartamentos();
-                /*string TodosLosId = "select * from departamento";
-                OracleCommand comando = new OracleCommand(TodosLosId, conexionOracle);
-                OracleDataAdapter da = new OracleDataAdapter(comando);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgListadoDep.DataContext = dt;*/
-
             }
         }
 
@@ -341,14 +339,57 @@ namespace RealTurismo
             }
         }
 
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtIdDepartamento.Text != ""){
+                try
+                {
+                    //Crear conexion
+                    OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                    // Conecta
+                    conexionOracle.Open();
+                    string id = txtIdDepartamento.Text;
+                    if (MessageBox.Show("¿Esta seguro que desea eliminar el siguiente departamento? : "+id, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                    {
+                        //do no stuff
+                        conexionOracle.Close();
+                        MessageBox.Show("Operacion Abortada");
+                    }
+                    else
+                    {
+                        int flag = 0;
+                        OracleCommand comando = new OracleCommand("delete from departamento where id_departamento = "+id, conexionOracle);
+                        //OracleDataReader eliminar = comando.ExecuteReader();
+                        flag = comando.ExecuteNonQuery(); // determina si existe la consul
+                        if (flag == 1)
+                        {
+                            MessageBox.Show("El departamento escogido fue eliminado con exito");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontro el departamento");
+                        }
+                        
+                    }
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+        }
+        
         private void dgListadoDep_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Departamentos depto = (Departamentos)dgListadoDep.SelectedItem;
-            txtIdDepartamento.Text = depto.IdDepartamento.ToString();
-
+            if (dgListadoDep.SelectedItem != null)
+            {
+                txtIdDepartamento.Text = depto.IdDepartamento.ToString();
+            }
+            
             
         }
-
-
+        
+        
     }
 }

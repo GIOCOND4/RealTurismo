@@ -45,7 +45,7 @@
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="635,96,0,0" VerticalAlignment="Top" Width="126" Click="btnBuscar_Click"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="413,368,0,0" VerticalAlignment="Top" Width="109" Click="btnAgregar_Click"/>
         <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="532,368,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="652,368,0,0" VerticalAlignment="Top" Width="109"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="652,368,0,0" VerticalAlignment="Top" Width="109" Click="btnEliminar_Click"/>
         <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="30,368,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
