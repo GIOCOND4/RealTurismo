@@ -10,27 +10,27 @@
         Icon="Imagenes/informe.png"
         Title="MantDepartamento" Height="450" Width="800">
     <Grid>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Height="29" Margin="41,45,0,0" VerticalAlignment="Top" Width="93" FontSize="14" RenderTransformOrigin="0.494,0.415"/>
-        <Label Content="Dirección:" HorizontalAlignment="Left" Height="27" Margin="41,74,0,0" VerticalAlignment="Top" Width="93" FontSize="14"/>
-        <Label Content="Costo:" HorizontalAlignment="Left" Height="28" Margin="41,103,0,0" VerticalAlignment="Top" Width="93" FontSize="14"/>
-        <Label Content="Piso:" HorizontalAlignment="Left" Height="27" Margin="41,132,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
-        <Label Content="Cable:" HorizontalAlignment="Left" Height="27" Margin="43,338,0,0" VerticalAlignment="Top" Width="52" FontSize="14"/>
-        <Label Content="Internet:" HorizontalAlignment="Left" Height="27" Margin="42,369,0,0" VerticalAlignment="Top" Width="68" FontSize="14"/>
-        <Label Content="Calefacción:" HorizontalAlignment="Left" Height="27" Margin="161,339,0,0" VerticalAlignment="Top" Width="83" FontSize="14"/>
-        <Label Content="Amoblado:" HorizontalAlignment="Left" Height="28" Margin="161,369,0,0" VerticalAlignment="Top" Width="79" FontSize="14"/>
-        <Label Content="Aire Condicionado:" HorizontalAlignment="Left" Height="44" Margin="140,397,0,0" VerticalAlignment="Top" Width="135" FontSize="14"/>
-        <Label Content="Balcón:" HorizontalAlignment="Left" Height="27" Margin="275,338,0,0" VerticalAlignment="Top" Width="70" FontSize="14" RenderTransformOrigin="0.522,1.013"/>
-        <Label Content="Disponible:" HorizontalAlignment="Left" Height="27" Margin="275,369,0,0" VerticalAlignment="Top" Width="81" FontSize="14"/>
-        <CheckBox x:Name="cbAire" Content="" HorizontalAlignment="Left" Margin="361,343,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbAmoblado" Content="" HorizontalAlignment="Left" Margin="251,375,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbCable" Content="" HorizontalAlignment="Left" Margin="137,342,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbInternet" Content="" HorizontalAlignment="Left" Margin="137,375,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbCalefaccion" Content="" HorizontalAlignment="Left" Margin="251,343,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <TextBox x:Name="txtCosto" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Costo" Height="25" Margin="137,104,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="25" Margin="137,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <TextBox x:Name="txtNHabitaciones" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Habitaciones" Height="25" Margin="137,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nº Piso" Height="25" Margin="137,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="248" Margin="414,108,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
+        <Label Content="Nombre:" HorizontalAlignment="Left" Height="29" Margin="41,40,0,0" VerticalAlignment="Top" Width="93" FontSize="14" RenderTransformOrigin="0.494,0.415"/>
+        <Label Content="Dirección:" HorizontalAlignment="Left" Height="27" Margin="41,69,0,0" VerticalAlignment="Top" Width="93" FontSize="14"/>
+        <Label Content="Costo:" HorizontalAlignment="Left" Height="28" Margin="41,98,0,0" VerticalAlignment="Top" Width="93" FontSize="14"/>
+        <Label Content="Piso:" HorizontalAlignment="Left" Height="27" Margin="41,127,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
+        <Label Content="Cable:" HorizontalAlignment="Left" Height="27" Margin="43,332,0,0" VerticalAlignment="Top" Width="52" FontSize="14"/>
+        <Label Content="Internet:" HorizontalAlignment="Left" Height="27" Margin="42,359,0,0" VerticalAlignment="Top" Width="68" FontSize="14"/>
+        <Label Content="Calefacción:" HorizontalAlignment="Left" Height="27" Margin="161,333,0,0" VerticalAlignment="Top" Width="83" FontSize="14"/>
+        <Label Content="Amoblado:" HorizontalAlignment="Left" Height="28" Margin="161,359,0,0" VerticalAlignment="Top" Width="79" FontSize="14"/>
+        <Label Content="Aire Condicionado:" HorizontalAlignment="Left" Height="28" Margin="140,385,0,0" VerticalAlignment="Top" Width="135" FontSize="14"/>
+        <Label Content="Balcón:" HorizontalAlignment="Left" Height="27" Margin="275,332,0,0" VerticalAlignment="Top" Width="70" FontSize="14" RenderTransformOrigin="0.522,1.013"/>
+        <Label Content="Disponible:" HorizontalAlignment="Left" Height="27" Margin="275,359,0,0" VerticalAlignment="Top" Width="81" FontSize="14"/>
+        <CheckBox x:Name="cbAire" Content="" HorizontalAlignment="Left" Margin="361,337,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbAmoblado" Content="" HorizontalAlignment="Left" Margin="251,365,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbCable" Content="" HorizontalAlignment="Left" Margin="137,336,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbInternet" Content="" HorizontalAlignment="Left" Margin="137,365,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <CheckBox x:Name="cbCalefaccion" Content="" HorizontalAlignment="Left" Margin="251,337,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <TextBox x:Name="txtCosto" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Costo" Height="25" Margin="137,99,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="25" Margin="137,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <TextBox x:Name="txtNHabitaciones" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Habitaciones" Height="25" Margin="137,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nº Piso" Height="25" Margin="137,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="269" Margin="414,103,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre"/>
                 <DataGridTextColumn Header="Dirección"/>
@@ -48,31 +48,31 @@
                 <DataGridCheckBoxColumn Header="Disponible"/>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="cbDisponible" Content="" HorizontalAlignment="Left" Margin="275,402,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <CheckBox x:Name="cbBalcon" Content="" HorizontalAlignment="Left" Margin="361,375,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
-        <TextBox x:Name="txtIdDepartamento" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese ID Departamento" Height="28" Margin="414,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
-        <Label Content="ID Departamento:" HorizontalAlignment="Left" Height="32" Margin="414,44,0,0" VerticalAlignment="Top" Width="143" FontSize="14" RenderTransformOrigin="0.494,0.415"/>
-        <Button Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="636,72,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="414,366,0,0" VerticalAlignment="Top" Width="109"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="533,366,0,0" VerticalAlignment="Top" Width="110"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="653,366,0,0" VerticalAlignment="Top" Width="109"/>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="41,392,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
+        <CheckBox x:Name="cbDisponible" Content="" HorizontalAlignment="Left" Margin="275,389,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632" Height="22"/>
+        <CheckBox x:Name="cbBalcon" Content="" HorizontalAlignment="Left" Margin="361,365,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.106,0.632"/>
+        <TextBox x:Name="txtIdDepartamento" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese ID Departamento" Height="28" Margin="414,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
+        <Label Content="ID Departamento:" HorizontalAlignment="Left" Height="32" Margin="414,39,0,0" VerticalAlignment="Top" Width="143" FontSize="14" RenderTransformOrigin="0.494,0.415"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="636,67,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="414,380,0,0" VerticalAlignment="Top" Width="109"/>
+        <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="533,380,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="653,380,0,0" VerticalAlignment="Top" Width="109"/>
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="46,380,0,0" VerticalAlignment="Top" Width="46" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
             </StackPanel>
         </Button>
         <Label Content="Mantenedor Departamentos" HorizontalAlignment="Center" Height="34" VerticalAlignment="Top" Width="280" Background="{x:Null}" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Región:" HorizontalAlignment="Left" Height="28" Margin="42,161,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
-        <Label Content="Provincia:" HorizontalAlignment="Left" Height="27" Margin="41,190,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
-        <Label Content="Comuna:" HorizontalAlignment="Left" Height="27" Margin="41,217,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
-        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Región -"  Height="9" Margin="137,162,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <ComboBox x:Name="cbbProvincia" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Provincia -"  Height="9" Margin="137,191,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Comuna -"  Height="9" Margin="137,219,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <Label Content="Habitaciones:" HorizontalAlignment="Left" Height="27" Margin="42,249,0,0" VerticalAlignment="Top" Width="104" FontSize="14" RenderTransformOrigin="0.49,-0.098"/>
-        <Label Content="Baños:" HorizontalAlignment="Left" Height="27" Margin="42,280,0,0" VerticalAlignment="Top" Width="104" FontSize="14"/>
-        <Label Content="Personas:" HorizontalAlignment="Left" Height="27" Margin="42,311,0,0" VerticalAlignment="Top" Width="104" FontSize="14"/>
-        <TextBox x:Name="txtNBanios" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Baños" Height="25" Margin="137,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <TextBox x:Name="txtNPersona" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Personas" Height="25" Margin="137,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nombre Descriptivo" Height="25" Margin="137,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <Label Content="Región:" HorizontalAlignment="Left" Height="28" Margin="42,156,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
+        <Label Content="Provincia:" HorizontalAlignment="Left" Height="27" Margin="41,185,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
+        <Label Content="Comuna:" HorizontalAlignment="Left" Height="27" Margin="41,212,0,0" VerticalAlignment="Top" Width="94" FontSize="14"/>
+        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Región -"  Height="9" Margin="137,157,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <ComboBox x:Name="cbbProvincia" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Provincia -"  Height="9" Margin="137,186,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="        - Seleccione Comuna -"  Height="9" Margin="137,214,0,0" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <Label Content="Habitaciones:" HorizontalAlignment="Left" Height="27" Margin="42,244,0,0" VerticalAlignment="Top" Width="104" FontSize="14" RenderTransformOrigin="0.49,-0.098"/>
+        <Label Content="Baños:" HorizontalAlignment="Left" Height="27" Margin="42,275,0,0" VerticalAlignment="Top" Width="104" FontSize="14"/>
+        <Label Content="Personas:" HorizontalAlignment="Left" Height="27" Margin="42,306,0,0" VerticalAlignment="Top" Width="104" FontSize="14"/>
+        <TextBox x:Name="txtNBanios" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Baños" Height="25" Margin="137,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <TextBox x:Name="txtNPersona" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Cantidad Personas" Height="25" Margin="137,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nombre Descriptivo" Height="25" Margin="137,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" FontSize="14"/>
     </Grid>
 </Controls:MetroWindow>
