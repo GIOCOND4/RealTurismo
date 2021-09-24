@@ -33,8 +33,7 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="28" Margin="155,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nombre Descriptivo" Height="28" Margin="155,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
         <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Nº Piso" Height="28" Margin="155,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="14"/>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="228" Margin="413,130,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke" SelectionChanged="dgListadoDep_SelectionChanged">
-        </DataGrid>
+        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="228" Margin="413,130,0,0" VerticalAlignment="Top" Width="348" Background="WhiteSmoke" SelectionChanged="dgListadoDep_SelectionChanged" CanUserAddRows="False"/>
         <CheckBox x:Name="cbDisponible" Content="" HorizontalAlignment="Left" Margin="348,337,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <CheckBox x:Name="cbPersonas" Content="" HorizontalAlignment="Left" Margin="472,452,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
         <CheckBox x:Name="cbBalcon" Content="" HorizontalAlignment="Left" Margin="348,202,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.106,0.632"/>
@@ -44,7 +43,7 @@
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Height="32" Margin="413,62,0,0" VerticalAlignment="Top" Width="143" FontSize="16" RenderTransformOrigin="0.494,0.415"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Height="28" Margin="635,96,0,0" VerticalAlignment="Top" Width="126" Click="btnBuscar_Click"/>
         <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Height="28" Margin="413,368,0,0" VerticalAlignment="Top" Width="109" Click="btnAgregar_Click"/>
-        <Button Content="Editar" HorizontalAlignment="Left" Height="28" Margin="532,368,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Height="28" Margin="532,368,0,0" VerticalAlignment="Top" Width="110" Click="btnEditar_Click"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Height="28" Margin="652,368,0,0" VerticalAlignment="Top" Width="109" Click="btnEliminar_Click"/>
         <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="30,368,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>

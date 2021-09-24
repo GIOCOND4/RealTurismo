@@ -54,6 +54,7 @@ namespace RealTurismo
 
         }
 
+        //Poblar combobox de provincia por region escogida
         private void cbbRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             cbbProvincia.DataContext = null;
@@ -84,6 +85,7 @@ namespace RealTurismo
 
         }
 
+        //poblar combobox de region por provincia escogida
         private void cbbProvincia_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             cbbComuna.DataContext = null;
@@ -109,9 +111,11 @@ namespace RealTurismo
                 }
             }
             cbbComuna.SelectedIndex = 0;
+            dgListadoDep.ItemsSource = ListarDepartamentos();
 
         }
 
+        //Agregar un departamento
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             //obtener datos
@@ -181,14 +185,8 @@ namespace RealTurismo
                 "," + cable + "," + internet + "," + calefaccion + "," + amoblado + "," + aire + "," + balcon + "," + nrohabitaciones +
                 "," + nrobaios + "," + nroPersonas + "," + disponible + "," + id+")";
 
-                MessageBox.Show(añadirDepto);
-
                 OracleCommand insertar = new OracleCommand(añadirDepto, conexionOracle);
                 OracleDataReader CrearDepartamento = insertar.ExecuteReader();
-                if (CrearDepartamento.Read())
-                {
-                    MessageBox.Show("El departamento ha sido ingresado con exito");
-                    //colocador por motivos de prueba
                     txtNombre.Text = "";
                     txtDireccion.Text = "";
                     txtCosto.Text = "";
@@ -208,26 +206,11 @@ namespace RealTurismo
                     cbbProvincia.DataContext = null;
                     cbbProvincia.Items.Clear();
                     cbbRegion.SelectedIndex = 0;
-
-                }
-
-                //pordia añadir un commit
-                /*
-                OracleCommand insertar = new OracleCommand(añadirDepto, conexionOracle);
-                OracleTransaction transaccion;
-                transaccion = conexionOracle.BeginTransaction(IsolationLevel.ReadCommitted);
-                insertar.CommandText = añadirDepto;
-                insertar.ExecuteNonQuery();
-                transaccion.Commit();
-                MessageBox.Show("Se inserto el departamento");*/
-                
-
+                MessageBox.Show("El departamento ha sido ingresado con exito");
             }
-
-
-
         }
 
+        //busca de un departamento
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             string iddepto = txtIdDepartamento.Text;
@@ -247,6 +230,7 @@ namespace RealTurismo
             }
         }
 
+        //metodo listar todos los departamentos
         public List<Departamentos> ListarDepartamentos()
         {
             try
@@ -339,6 +323,7 @@ namespace RealTurismo
             }
         }
 
+        //eliminar departamento por id
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             if(txtIdDepartamento.Text != ""){
@@ -379,17 +364,178 @@ namespace RealTurismo
             }
         }
         
+        //poblar textbox por departamento escogido
         private void dgListadoDep_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Departamentos depto = (Departamentos)dgListadoDep.SelectedItem;
             if (dgListadoDep.SelectedItem != null)
             {
                 txtIdDepartamento.Text = depto.IdDepartamento.ToString();
+                txtNombre.Text = depto.NombreDescriptivo.ToString();
+                txtDireccion.Text = depto.Direccion.ToString();
+                txtCosto.Text = depto.Costo.ToString();
+                txtPiso.Text = depto.Piso.ToString();
+                if (depto.Cable == false)
+                {
+                    cbCable.IsChecked = false;
+                }
+                else{
+                    cbCable.IsChecked = true;
+                }
+                if (depto.Internet == false)
+                {
+                    cbInternet.IsChecked = false;
+                }
+                else
+                {
+                    cbInternet.IsChecked = true;
+                }
+                if (depto.Calefaccion == false)
+                {
+                    cbCalefaccion.IsChecked = false;
+                }
+                else
+                {
+                    cbCalefaccion.IsChecked = true;
+                }
+                if (depto.Amoblado == false)
+                {
+                    cbAmoblado.IsChecked = false;
+                }
+                else
+                {
+                    cbAmoblado.IsChecked = true;
+                }
+                if (depto.AireAcondiconado == false)
+                {
+                    cbAire.IsChecked = false;
+                }
+                else
+                {
+                    cbAire.IsChecked = true;
+                }
+                if (depto.Balcon == false)
+                {
+                    cbBalcon.IsChecked = false;
+                }
+                else
+                {
+                    cbBalcon.IsChecked = true;
+                }
+                txtNHabitaciones.Text = depto.NroHabitaciones.ToString();
+                txtNBanios.Text = depto.NroBanios.ToString();
+                txtNPersonas.Text = depto.CantidadPersonas.ToString();
+                if (depto.Disponible == false)
+                {
+                    cbDisponible.IsChecked = false;
+                }
+                else
+                {
+                    cbDisponible.IsChecked = true;
+                }
+                cbbRegion.SelectedIndex = 0;
             }
             
             
         }
-        
-        
+
+        //modificar departamento por id
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdDepartamento.Text != "")
+            {
+                
+                try
+                {
+                    //Crear conexion
+                    OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                    // Conecta
+                    conexionOracle.Open();
+                    Departamentos depto = new Departamentos();
+                    depto.IdDepartamento = int.Parse(txtIdDepartamento.Text);
+                    depto.NombreDescriptivo = txtNombre.Text;
+                    depto.Direccion = txtDireccion.Text;
+                    depto.Costo = int.Parse(txtCosto.Text);
+                    depto.Piso  = int.Parse(txtPiso.Text);
+                    string cable = "0";
+                    string internet = "0";
+                    string calefaccion = "0";
+                    string amoblado = "0";
+                    string aire = "0";
+                    string balcon = "0";
+                    string disponible = "0";
+                    if (cbCable.IsChecked == true)
+                    {
+                        cable = "1";
+                    }
+                    if (cbInternet.IsChecked == true)
+                    {
+                        internet = "1";
+                    }
+                    if (cbCalefaccion.IsChecked == true)
+                    {
+                        calefaccion = "1";
+                    }
+                    if (cbAmoblado.IsChecked == true)
+                    {
+                        amoblado = "1";
+                    }
+                    if (cbAire.IsChecked == true)
+                    {
+                        aire = "1";
+                    }
+                    if (cbBalcon.IsChecked == true)
+                    {
+                        balcon = "1";
+                    }
+                    depto.NroHabitaciones = int.Parse(txtNHabitaciones.Text);
+                    depto.NroBanios = int.Parse(txtNBanios.Text);
+                    depto.CantidadPersonas = int.Parse(txtNPersonas.Text);
+                    if (cbDisponible.IsChecked == true)
+                    {
+                        disponible = "1";
+                    }
+                    string comuna = cbbComuna.SelectedItem.ToString();
+
+                    string buscarIdComuna = "select id_comuna from comuna " +
+                    "where descripcion = '" + comuna + "'";
+
+                    OracleCommand Comando = new OracleCommand(buscarIdComuna, conexionOracle);
+                    OracleDataReader buscarID = Comando.ExecuteReader();
+                    if (buscarID.Read())
+                    {
+                        string id = buscarID.GetString(0);
+                        string sql = "UPDATE DEPARTAMENTO " +
+                        "SET NOMBRE_DESCRIPTIVO = '" + depto.NombreDescriptivo + "', DIRECCION = '"+ depto.Direccion +"', PISO = "+ depto.Piso +", "+
+                        "COSTO = "+ depto.Costo +", CABLE = "+ cable +", INTERNET = "+ internet +", CALEFFACION = "+ calefaccion +", "+
+                        "AMOBLADO = "+ amoblado +", AIRE_ACONDICIONADO = "+ aire +", BALCON = "+ balcon +", NRO_HABITACIONES = "+ depto.NroHabitaciones + ", "+
+                        "NRO_BANIOS = "+ depto.NroBanios +", CANT_PERSONAS = "+ depto.CantidadPersonas +", DISPONIBLE = "+ disponible +", ID_COMUNA = "+id+" "+
+                        "WHERE ID_DEPARTAMENTO = "+ depto.IdDepartamento ;
+                        OracleCommand consulta = new OracleCommand(sql,conexionOracle);
+                        if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente departamento? : " + id, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                        {
+                            int flag = 0;
+                            flag = consulta.ExecuteNonQuery(); // determina si existe la consul
+                            if (flag == 1)
+                            {
+                                MessageBox.Show("El departamento escogido fue modificado con exito");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontro el departamento");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Operacion abortada");
+                        }
+                    }
+                }
+                catch (Exception)
+                { 
+                    return;
+                }
+            }
+        }
     }
 }
