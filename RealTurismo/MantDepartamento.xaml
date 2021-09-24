@@ -9,6 +9,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Icon="Imagenes/informe.png"
         Title="MantDepartamento" Height="514" Width="800">
+   
     <Grid Height="496" VerticalAlignment="Top">
         <Label Content="Nombre:" HorizontalAlignment="Left" Height="32" Margin="36,64,0,0" VerticalAlignment="Top" Width="93" FontSize="16" RenderTransformOrigin="0.494,0.415"/>
         <Label Content="Dirección:" HorizontalAlignment="Left" Height="32" Margin="36,96,0,0" VerticalAlignment="Top" Width="93" FontSize="16"/>
