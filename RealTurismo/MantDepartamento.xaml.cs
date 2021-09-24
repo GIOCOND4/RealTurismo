@@ -207,6 +207,7 @@ namespace RealTurismo
                     cbbProvincia.Items.Clear();
                     cbbRegion.SelectedIndex = 0;
                 MessageBox.Show("El departamento ha sido ingresado con exito");
+                dgListadoDep.ItemsSource = ListarDepartamentos();
             }
         }
 
@@ -220,9 +221,7 @@ namespace RealTurismo
             conexionOracle.Open();
             if(iddepto != "")
             {
-                MessageBox.Show("Item En Contruccion");
-                conexionOracle.Close();
-
+                dgListadoDep.ItemsSource = ListarDeptoPorID(int.Parse(iddepto));
             }
             else
             {
@@ -243,6 +242,99 @@ namespace RealTurismo
                 OracleDataReader leer = comando.ExecuteReader();
                 List<Departamentos> listDepartamento = new List<Departamentos>();
                 while(leer.Read())
+                {
+                    Departamentos depto = new Departamentos();
+                    depto.IdDepartamento = int.Parse(leer["ID_DEPARTAMENTO"].ToString());
+                    depto.NombreDescriptivo = leer["NOMBRE_DESCRIPTIVO"].ToString();
+                    depto.Direccion = leer["DIRECCION"].ToString();
+                    depto.Piso = int.Parse(leer["PISO"].ToString());
+                    depto.Costo = int.Parse(leer["COSTO"].ToString());
+                    if (int.Parse(leer["CABLE"].ToString()) == 1)
+                    {
+                        depto.Cable = true;
+                    }
+                    else
+                    {
+                        depto.Cable = false;
+                    }
+                    if (int.Parse(leer["INTERNET"].ToString()) == 1)
+                    {
+                        depto.Internet = true;
+                    }
+                    else
+                    {
+                        depto.Internet = false;
+                    }
+                    if (int.Parse(leer["CALEFACCION"].ToString()) == 1)
+                    {
+                        depto.Calefaccion = true;
+                    }
+                    else
+                    {
+                        depto.Calefaccion = false;
+                    }
+                    if (int.Parse(leer["AMOBLADO"].ToString()) == 1)
+                    {
+                        depto.Amoblado = true;
+                    }
+                    else
+                    {
+                        depto.Amoblado = false;
+                    }
+                    if (int.Parse(leer["AIRE_ACONDICIONADO"].ToString()) == 1)
+                    {
+                        depto.AireAcondiconado = true;
+                    }
+                    else
+                    {
+                        depto.AireAcondiconado = false;
+                    }
+                    if (int.Parse(leer["BALCON"].ToString()) == 1)
+                    {
+                        depto.Balcon = true;
+                    }
+                    else
+                    {
+                        depto.Balcon = false;
+                    }
+                    depto.NroHabitaciones = int.Parse(leer["NRO_HABITACIONES"].ToString());
+                    depto.NroBanios = int.Parse(leer["NRO_BANIOS"].ToString());
+                    depto.CantidadPersonas = int.Parse(leer["CANT_PERSONAS"].ToString());
+                    if (int.Parse(leer["DISPONIBLE"].ToString()) == 1)
+                    {
+                        depto.Disponible = true;
+                    }
+                    else
+                    {
+                        depto.Disponible = false;
+                    }
+                    depto.IdComuna = int.Parse(leer["ID_COMUNA"].ToString());
+
+                    listDepartamento.Add(depto);
+                }
+                conexionOracle.Close();
+                return listDepartamento;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        //metodo listar todos los departamentos
+        public List<Departamentos> ListarDeptoPorID(int idabuscar)
+        {
+            try
+            {
+                //Crear conexion
+                OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                // Conecta
+                conexionOracle.Open();
+                OracleCommand comando = new OracleCommand("select * from departamento where id_departamento = "+ idabuscar, conexionOracle);
+                OracleDataReader leer = comando.ExecuteReader();
+                List<Departamentos> listDepartamento = new List<Departamentos>();
+                while (leer.Read())
                 {
                     Departamentos depto = new Departamentos();
                     depto.IdDepartamento = int.Parse(leer["ID_DEPARTAMENTO"].ToString());
@@ -507,18 +599,21 @@ namespace RealTurismo
                         string id = buscarID.GetString(0);
                         string sql = "UPDATE DEPARTAMENTO " +
                         "SET NOMBRE_DESCRIPTIVO = '" + depto.NombreDescriptivo + "', DIRECCION = '"+ depto.Direccion +"', PISO = "+ depto.Piso +", "+
-                        "COSTO = "+ depto.Costo +", CABLE = "+ cable +", INTERNET = "+ internet +", CALEFFACION = "+ calefaccion +", "+
+                        "COSTO = "+ depto.Costo +", CABLE = "+ cable +", INTERNET = "+ internet +", CALEFACCION = "+ calefaccion +", "+
                         "AMOBLADO = "+ amoblado +", AIRE_ACONDICIONADO = "+ aire +", BALCON = "+ balcon +", NRO_HABITACIONES = "+ depto.NroHabitaciones + ", "+
                         "NRO_BANIOS = "+ depto.NroBanios +", CANT_PERSONAS = "+ depto.CantidadPersonas +", DISPONIBLE = "+ disponible +", ID_COMUNA = "+id+" "+
                         "WHERE ID_DEPARTAMENTO = "+ depto.IdDepartamento ;
                         OracleCommand consulta = new OracleCommand(sql,conexionOracle);
-                        if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente departamento? : " + id, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+
+                        MessageBox.Show(sql);
+                        if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente departamento? : " + depto.IdDepartamento, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                         {
                             int flag = 0;
                             flag = consulta.ExecuteNonQuery(); // determina si existe la consul
                             if (flag == 1)
                             {
                                 MessageBox.Show("El departamento escogido fue modificado con exito");
+                                dgListadoDep.ItemsSource = ListarDepartamentos();
                             }
                             else
                             {
@@ -532,7 +627,7 @@ namespace RealTurismo
                     }
                 }
                 catch (Exception)
-                { 
+                {
                     return;
                 }
             }
