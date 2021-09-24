@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RealTurismo
 {
@@ -61,7 +62,7 @@ namespace RealTurismo
             }
         }
 
-        public string NombreDescriptivo
+        public string NombreDescriptivo 
         {
             get
             {
@@ -70,6 +71,10 @@ namespace RealTurismo
 
             set
             {
+                if (value.Length > 100 || value.Length < 1)
+                {
+                    throw new InvalidOperationException("El nombre del departamento es muy largo o esta vacio");
+                }
                 _nombreDescriptivo = value;
             }
         }
@@ -83,6 +88,10 @@ namespace RealTurismo
 
             set
             {
+                if (value.Length > 100 || value.Length < 1)
+                {
+                    throw new InvalidOperationException("La direccion es muy larga o esta vacio");
+                }
                 _direccion = value;
             }
         }
@@ -96,6 +105,10 @@ namespace RealTurismo
 
             set
             {
+                if (value < 1 || value > 99) 
+                {
+                    throw new InvalidOperationException("El piso debe ser mayor que 0 y menor que 100");
+                }
                 _piso = value;
             }
         }
@@ -109,6 +122,10 @@ namespace RealTurismo
 
             set
             {
+                if (value < 15000)
+                {
+                    throw new InvalidOperationException("El valor minimo de costo es de $15000 ");
+                }
                 _costo = value;
             }
         }
@@ -199,6 +216,10 @@ namespace RealTurismo
 
             set
             {
+                if (value < 1 || value > 99)
+                {
+                    throw new InvalidOperationException("El nro de habitaciones es muy grande o es nulo");
+                }
                 _nroHabitaciones = value;
             }
         }
@@ -212,6 +233,10 @@ namespace RealTurismo
 
             set
             {
+                if (value < 1 || value > 99)
+                {
+                    throw new InvalidOperationException("El nro de bños es muy grande o es nulo");
+                }
                 _nroBanios = value;
             }
         }
@@ -225,6 +250,10 @@ namespace RealTurismo
 
             set
             {
+                if (value < 1 || value > 99)
+                {
+                    throw new InvalidOperationException("La cantidad de personas es muy grande o es nulo");
+                }
                 _cantidadPersonas = value;
             }
         }

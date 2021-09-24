@@ -118,97 +118,119 @@ namespace RealTurismo
         //Agregar un departamento
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            //obtener datos
-            string nombre = txtNombre.Text;
-            string direccion = txtDireccion.Text;
-            string costo = txtCosto.Text;
-            string piso = txtPiso.Text;
-            string cable = "0";
-            string internet = "0";
-            string calefaccion = "0";
-            string amoblado = "0";
-            string aire = "0";
-            string balcon = "0";
-            string disponible = "0";
-            if (cbCable.IsChecked == true)
+            try
             {
-                cable = "1";
+                Departamentos depto = new Departamentos();
+                //obtener datos
+                depto.NombreDescriptivo = txtNombre.Text;
+                depto.Direccion = txtDireccion.Text;
+                depto.Costo = int.Parse(txtCosto.Text);
+                depto.Piso = int.Parse(txtPiso.Text);
+                string cable = "0";
+                string internet = "0";
+                string calefaccion = "0";
+                string amoblado = "0";
+                string aire = "0";
+                string balcon = "0";
+                string disponible = "0";
+                if (cbCable.IsChecked == true)
+                {
+                    cable = "1";
+                }
+                if (cbInternet.IsChecked == true)
+                {
+                    internet = "1";
+                }
+                if (cbCalefaccion.IsChecked == true)
+                {
+                    calefaccion = "1";
+                }
+                if (cbAmoblado.IsChecked == true)
+                {
+                    amoblado = "1";
+                }
+                if (cbAire.IsChecked == true)
+                {
+                    aire = "1";
+                }
+                if (cbBalcon.IsChecked == true)
+                {
+                    balcon = "1";
+                }
+                depto.NroHabitaciones = int.Parse(txtNHabitaciones.Text);
+                depto.NroBanios = int.Parse(txtNBanios.Text);
+                depto.CantidadPersonas = int.Parse(txtNPersonas.Text);
+                if (cbDisponible.IsChecked == true)
+                {
+                    disponible = "1";
+                }
+
+                string comuna = cbbComuna.SelectedItem.ToString();
+
+                //Crear conexion
+                OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                // Conecta
+                conexionOracle.Open();
+
+                string buscarIdComuna = "select id_comuna from comuna " +
+                    "where descripcion = '" + comuna + "'";
+
+                OracleCommand Comando = new OracleCommand(buscarIdComuna, conexionOracle);
+
+                OracleDataReader buscarID = Comando.ExecuteReader();
+
+                if (buscarID.Read())
+                {
+                    string id = buscarID.GetString(0);
+
+                    string añadirDepto = "INSERT INTO DEPARTAMENTO VALUES(" +
+                    "incremento_id_departamento.NextVal,'" + depto.NombreDescriptivo + "','" + depto.Direccion + "'," + depto.Piso + "," + depto.Costo +
+                    "," + cable + "," + internet + "," + calefaccion + "," + amoblado + "," + aire + "," + balcon + "," + depto.NroHabitaciones +
+                    "," + depto.NroBanios + "," + depto.CantidadPersonas + "," + disponible + "," + id + ")";
+
+                    OracleCommand insertar = new OracleCommand(añadirDepto, conexionOracle);
+                    int flag = 0;
+
+                    flag = insertar.ExecuteNonQuery();
+                    if (flag == 1)
+                    {
+                        txtIdDepartamento.Text = "";
+                        txtNombre.Text = "";
+                        txtDireccion.Text = "";
+                        txtCosto.Text = "";
+                        txtPiso.Text = "";
+                        cbCable.IsChecked = false;
+                        cbInternet.IsChecked = false;
+                        cbCalefaccion.IsChecked = false;
+                        cbAmoblado.IsChecked = false;
+                        cbAire.IsChecked = false;
+                        cbBalcon.IsChecked = false;
+                        txtNHabitaciones.Text = "";
+                        txtNBanios.Text = "";
+                        txtNPersonas.Text = "";
+                        cbDisponible.IsChecked = false;
+                        cbbComuna.DataContext = null;
+                        cbbComuna.Items.Clear();
+                        cbbProvincia.DataContext = null;
+                        cbbProvincia.Items.Clear();
+                        cbbRegion.SelectedIndex = 0;
+                        cbbProvincia.SelectedIndex = 0;
+                        cbbComuna.SelectedIndex = 0;
+                        MessageBox.Show("El departamento ha sido ingresado con exito");
+                        dgListadoDep.ItemsSource = ListarDepartamentos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error a la hora de ingresar departamento");
+                    }
+                    
+                }
             }
-            if (cbInternet.IsChecked == true)
+            catch (Exception ex)
             {
-                internet = "1";
+                MessageBox.Show("Error : "+ex.Message);
             }
-            if (cbCalefaccion.IsChecked == true)
-            {
-                calefaccion = "1";
-            }
-            if (cbAmoblado.IsChecked == true)
-            {
-                amoblado = "1";
-            }
-            if (cbAire.IsChecked == true)
-            {
-                aire = "1";
-            }
-            if (cbBalcon.IsChecked == true)
-            {
-                balcon = "1";
-            }
-            string nrohabitaciones = txtNHabitaciones.Text;
-            string nrobaios = txtNBanios.Text;
-            string nroPersonas = txtNPersonas.Text;
-            if (cbDisponible.IsChecked == true)
-            {
-                disponible = "1";
-            }
-
-            string comuna = cbbComuna.SelectedItem.ToString();
-
-            //Crear conexion
-            OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
-            // Conecta
-            conexionOracle.Open();
-
-            string buscarIdComuna = "select id_comuna from comuna "+
-                "where descripcion = '"+ comuna +"'";
-
-            OracleCommand Comando = new OracleCommand(buscarIdComuna, conexionOracle);
-
-            OracleDataReader buscarID = Comando.ExecuteReader();
-
-            if(buscarID.Read())
-            {
-                string id = buscarID.GetString(0);
-
-                string añadirDepto = "INSERT INTO DEPARTAMENTO VALUES(" +
-                "incremento_id_departamento.NextVal,'" + nombre + "','" + direccion + "'," + piso + "," + costo +
-                "," + cable + "," + internet + "," + calefaccion + "," + amoblado + "," + aire + "," + balcon + "," + nrohabitaciones +
-                "," + nrobaios + "," + nroPersonas + "," + disponible + "," + id+")";
-
-                OracleCommand insertar = new OracleCommand(añadirDepto, conexionOracle);
-                OracleDataReader CrearDepartamento = insertar.ExecuteReader();
-                    txtNombre.Text = "";
-                    txtDireccion.Text = "";
-                    txtCosto.Text = "";
-                    txtPiso.Text = "";
-                    cbCable.IsChecked = false;
-                    cbInternet.IsChecked = false;
-                    cbCalefaccion.IsChecked = false;
-                    cbAmoblado.IsChecked = false;
-                    cbAire.IsChecked = false;
-                    cbBalcon.IsChecked = false;
-                    txtNHabitaciones.Text = "";
-                    txtNBanios.Text = "";
-                    txtNPersonas.Text = "";
-                    cbDisponible.IsChecked = false;
-                    cbbComuna.DataContext = null;
-                    cbbComuna.Items.Clear();
-                    cbbProvincia.DataContext = null;
-                    cbbProvincia.Items.Clear();
-                    cbbRegion.SelectedIndex = 0;
-                MessageBox.Show("El departamento ha sido ingresado con exito");
-                dgListadoDep.ItemsSource = ListarDepartamentos();
-            }
+            
         }
 
         //busca de un departamento
@@ -225,6 +247,27 @@ namespace RealTurismo
             }
             else
             {
+                txtNombre.Text = "";
+                txtDireccion.Text = "";
+                txtCosto.Text = "";
+                txtPiso.Text = "";
+                cbCable.IsChecked = false;
+                cbInternet.IsChecked = false;
+                cbCalefaccion.IsChecked = false;
+                cbAmoblado.IsChecked = false;
+                cbAire.IsChecked = false;
+                cbBalcon.IsChecked = false;
+                txtNHabitaciones.Text = "";
+                txtNBanios.Text = "";
+                txtNPersonas.Text = "";
+                cbDisponible.IsChecked = false;
+                cbbComuna.DataContext = null;
+                cbbComuna.Items.Clear();
+                cbbProvincia.DataContext = null;
+                cbbProvincia.Items.Clear();
+                cbbRegion.SelectedIndex = 0;
+                cbbProvincia.SelectedIndex = 0;
+                cbbComuna.SelectedIndex = 0;
                 dgListadoDep.ItemsSource = ListarDepartamentos();
             }
         }
@@ -238,7 +281,7 @@ namespace RealTurismo
                 OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
                 // Conecta
                 conexionOracle.Open();
-                OracleCommand comando = new OracleCommand("select * from departamento", conexionOracle);
+                OracleCommand comando = new OracleCommand("select * from departamento order by id_departamento", conexionOracle);
                 OracleDataReader leer = comando.ExecuteReader();
                 List<Departamentos> listDepartamento = new List<Departamentos>();
                 while(leer.Read())
@@ -440,7 +483,30 @@ namespace RealTurismo
                         flag = comando.ExecuteNonQuery(); // determina si existe la consul
                         if (flag == 1)
                         {
+                            txtIdDepartamento.Text = "";
+                            txtNombre.Text = "";
+                            txtDireccion.Text = "";
+                            txtCosto.Text = "";
+                            txtPiso.Text = "";
+                            cbCable.IsChecked = false;
+                            cbInternet.IsChecked = false;
+                            cbCalefaccion.IsChecked = false;
+                            cbAmoblado.IsChecked = false;
+                            cbAire.IsChecked = false;
+                            cbBalcon.IsChecked = false;
+                            txtNHabitaciones.Text = "";
+                            txtNBanios.Text = "";
+                            txtNPersonas.Text = "";
+                            cbDisponible.IsChecked = false;
+                            cbbComuna.DataContext = null;
+                            cbbComuna.Items.Clear();
+                            cbbProvincia.DataContext = null;
+                            cbbProvincia.Items.Clear();
+                            cbbRegion.SelectedIndex = 0;
+                            cbbProvincia.SelectedIndex = 0;
+                            cbbComuna.SelectedIndex = 0;
                             MessageBox.Show("El departamento escogido fue eliminado con exito");
+                            dgListadoDep.ItemsSource = ListarDepartamentos();
                         }
                         else
                         {
@@ -526,6 +592,7 @@ namespace RealTurismo
                     cbDisponible.IsChecked = true;
                 }
                 cbbRegion.SelectedIndex = 0;
+                
             }
             
             
@@ -612,6 +679,28 @@ namespace RealTurismo
                             flag = consulta.ExecuteNonQuery(); // determina si existe la consul
                             if (flag == 1)
                             {
+                                txtIdDepartamento.Text = "";
+                                txtNombre.Text = "";
+                                txtDireccion.Text = "";
+                                txtCosto.Text = "";
+                                txtPiso.Text = "";
+                                cbCable.IsChecked = false;
+                                cbInternet.IsChecked = false;
+                                cbCalefaccion.IsChecked = false;
+                                cbAmoblado.IsChecked = false;
+                                cbAire.IsChecked = false;
+                                cbBalcon.IsChecked = false;
+                                txtNHabitaciones.Text = "";
+                                txtNBanios.Text = "";
+                                txtNPersonas.Text = "";
+                                cbDisponible.IsChecked = false;
+                                cbbComuna.DataContext = null;
+                                cbbComuna.Items.Clear();
+                                cbbProvincia.DataContext = null;
+                                cbbProvincia.Items.Clear();
+                                cbbRegion.SelectedIndex = 0;
+                                cbbProvincia.SelectedIndex = 0;
+                                cbbComuna.SelectedIndex = 0;
                                 MessageBox.Show("El departamento escogido fue modificado con exito");
                                 dgListadoDep.ItemsSource = ListarDepartamentos();
                             }
