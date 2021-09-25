@@ -12,21 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
-using Oracle.ManagedDataAccess.Client;
 
 namespace RealTurismo
 {
     /// <summary>
-    /// Lógica de interacción para Menu.xaml
+    /// Lógica de interacción para MenuAdministrador.xaml
     /// </summary>
-    public partial class Menu : MetroWindow
+    public partial class MenuAdministrador : MetroWindow
     {
-        public Menu()
+        public MenuAdministrador()
         {
             InitializeComponent();
         }
 
-        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
+        private void btnADepartamentos_Click(object sender, RoutedEventArgs e)
         {
             MantDepartamento depto = new MantDepartamento();
             depto.Show();
