@@ -1,20 +1,9 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using System.Data;
-using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
 namespace RealTurismo
 {
@@ -59,13 +48,13 @@ namespace RealTurismo
         {
             cbbProvincia.DataContext = null;
             cbbProvincia.Items.Clear();
-            
+
             //Crear conexion
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
- 
-            
+
+
             string region = cbbRegion.SelectedItem.ToString();
             //cargar provincia
             string query2 = $"select p.descripcion from provincia p " +
@@ -95,7 +84,7 @@ namespace RealTurismo
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
-            if(cbbProvincia.SelectedItem != null)
+            if (cbbProvincia.SelectedItem != null)
             {
                 string provincia = cbbProvincia.SelectedItem.ToString();
                 //cargar comunas
@@ -223,14 +212,14 @@ namespace RealTurismo
                     {
                         MessageBox.Show("Error a la hora de ingresar departamento");
                     }
-                    
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error : "+ex.Message);
+                MessageBox.Show("Error : " + ex.Message);
             }
-            
+
         }
 
         //busca de un departamento
@@ -241,7 +230,7 @@ namespace RealTurismo
             OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
             // Conecta
             conexionOracle.Open();
-            if(iddepto != "")
+            if (iddepto != "")
             {
                 dgListadoDep.ItemsSource = ListarDeptoPorID(int.Parse(iddepto));
             }
@@ -284,7 +273,7 @@ namespace RealTurismo
                 OracleCommand comando = new OracleCommand("select * from departamento order by id_departamento", conexionOracle);
                 OracleDataReader leer = comando.ExecuteReader();
                 List<Departamentos> listDepartamento = new List<Departamentos>();
-                while(leer.Read())
+                while (leer.Read())
                 {
                     Departamentos depto = new Departamentos();
                     depto.IdDepartamento = int.Parse(leer["ID_DEPARTAMENTO"].ToString());
@@ -374,7 +363,7 @@ namespace RealTurismo
                 OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
                 // Conecta
                 conexionOracle.Open();
-                OracleCommand comando = new OracleCommand("select * from departamento where id_departamento = "+ idabuscar, conexionOracle);
+                OracleCommand comando = new OracleCommand("select * from departamento where id_departamento = " + idabuscar, conexionOracle);
                 OracleDataReader leer = comando.ExecuteReader();
                 List<Departamentos> listDepartamento = new List<Departamentos>();
                 while (leer.Read())
@@ -461,7 +450,8 @@ namespace RealTurismo
         //eliminar departamento por id
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if(txtIdDepartamento.Text != ""){
+            if (txtIdDepartamento.Text != "")
+            {
                 try
                 {
                     //Crear conexion
@@ -469,7 +459,7 @@ namespace RealTurismo
                     // Conecta
                     conexionOracle.Open();
                     string id = txtIdDepartamento.Text;
-                    if (MessageBox.Show("¿Esta seguro que desea eliminar el siguiente departamento? : "+id, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                    if (MessageBox.Show("¿Esta seguro que desea eliminar el siguiente departamento? : " + id, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
                     {
                         //do no stuff
                         conexionOracle.Close();
@@ -478,7 +468,7 @@ namespace RealTurismo
                     else
                     {
                         int flag = 0;
-                        OracleCommand comando = new OracleCommand("delete from departamento where id_departamento = "+id, conexionOracle);
+                        OracleCommand comando = new OracleCommand("delete from departamento where id_departamento = " + id, conexionOracle);
                         //OracleDataReader eliminar = comando.ExecuteReader();
                         flag = comando.ExecuteNonQuery(); // determina si existe la consul
                         if (flag == 1)
@@ -512,7 +502,7 @@ namespace RealTurismo
                         {
                             MessageBox.Show("No se encontro el departamento");
                         }
-                        
+
                     }
                 }
                 catch (Exception)
@@ -521,7 +511,7 @@ namespace RealTurismo
                 }
             }
         }
-        
+
         //poblar textbox por departamento escogido
         private void dgListadoDep_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -537,7 +527,8 @@ namespace RealTurismo
                 {
                     cbCable.IsChecked = false;
                 }
-                else{
+                else
+                {
                     cbCable.IsChecked = true;
                 }
                 if (depto.Internet == false)
@@ -592,10 +583,10 @@ namespace RealTurismo
                     cbDisponible.IsChecked = true;
                 }
                 cbbRegion.SelectedIndex = 0;
-                
+
             }
-            
-            
+
+
         }
 
         //modificar departamento por id
@@ -603,7 +594,7 @@ namespace RealTurismo
         {
             if (txtIdDepartamento.Text != "")
             {
-                
+
                 try
                 {
                     //Crear conexion
@@ -615,7 +606,7 @@ namespace RealTurismo
                     depto.NombreDescriptivo = txtNombre.Text;
                     depto.Direccion = txtDireccion.Text;
                     depto.Costo = int.Parse(txtCosto.Text);
-                    depto.Piso  = int.Parse(txtPiso.Text);
+                    depto.Piso = int.Parse(txtPiso.Text);
                     string cable = "0";
                     string internet = "0";
                     string calefaccion = "0";
@@ -665,12 +656,12 @@ namespace RealTurismo
                     {
                         string id = buscarID.GetString(0);
                         string sql = "UPDATE DEPARTAMENTO " +
-                        "SET NOMBRE_DESCRIPTIVO = '" + depto.NombreDescriptivo + "', DIRECCION = '"+ depto.Direccion +"', PISO = "+ depto.Piso +", "+
-                        "COSTO = "+ depto.Costo +", CABLE = "+ cable +", INTERNET = "+ internet +", CALEFACCION = "+ calefaccion +", "+
-                        "AMOBLADO = "+ amoblado +", AIRE_ACONDICIONADO = "+ aire +", BALCON = "+ balcon +", NRO_HABITACIONES = "+ depto.NroHabitaciones + ", "+
-                        "NRO_BANIOS = "+ depto.NroBanios +", CANT_PERSONAS = "+ depto.CantidadPersonas +", DISPONIBLE = "+ disponible +", ID_COMUNA = "+id+" "+
-                        "WHERE ID_DEPARTAMENTO = "+ depto.IdDepartamento ;
-                        OracleCommand consulta = new OracleCommand(sql,conexionOracle);
+                        "SET NOMBRE_DESCRIPTIVO = '" + depto.NombreDescriptivo + "', DIRECCION = '" + depto.Direccion + "', PISO = " + depto.Piso + ", " +
+                        "COSTO = " + depto.Costo + ", CABLE = " + cable + ", INTERNET = " + internet + ", CALEFACCION = " + calefaccion + ", " +
+                        "AMOBLADO = " + amoblado + ", AIRE_ACONDICIONADO = " + aire + ", BALCON = " + balcon + ", NRO_HABITACIONES = " + depto.NroHabitaciones + ", " +
+                        "NRO_BANIOS = " + depto.NroBanios + ", CANT_PERSONAS = " + depto.CantidadPersonas + ", DISPONIBLE = " + disponible + ", ID_COMUNA = " + id + " " +
+                        "WHERE ID_DEPARTAMENTO = " + depto.IdDepartamento;
+                        OracleCommand consulta = new OracleCommand(sql, conexionOracle);
 
                         MessageBox.Show(sql);
                         if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente departamento? : " + depto.IdDepartamento, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
@@ -720,6 +711,11 @@ namespace RealTurismo
                     return;
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
