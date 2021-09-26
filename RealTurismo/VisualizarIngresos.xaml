@@ -25,7 +25,7 @@
         <Button Content="Buscar" HorizontalAlignment="Left" Height="30" Margin="600,67,0,0" VerticalAlignment="Top" Width="92"/>
         <RadioButton Content="ID Multa" HorizontalAlignment="Left" Height="30" Margin="235,67,0,0" VerticalAlignment="Top" Width="91" FontSize="14"/>
         <RadioButton Content="ID Pago" HorizontalAlignment="Left" Height="30" Margin="144,67,0,0" VerticalAlignment="Top" Width="91" FontSize="14"/>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="38,386,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="38,386,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
             </StackPanel>
