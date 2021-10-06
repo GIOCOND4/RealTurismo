@@ -38,4 +38,10 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Imagenes\Mantenciones.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
