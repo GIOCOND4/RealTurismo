@@ -10,35 +10,31 @@
         Icon="Imagenes/informe.png">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="139*"/>
-            <ColumnDefinition Width="261*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="btnAEgresos" HorizontalAlignment="Left" Height="170" Margin="211,234,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}" Grid.Column="1">
+        <Button x:Name="btnAEgresos" HorizontalAlignment="Left" Height="170" Margin="489,234,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/mano.png" Height="97" Width="99" VerticalAlignment="Stretch"></Image>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Egresos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnAIngresos" HorizontalAlignment="Left" Height="170" Margin="211,27,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}" Grid.Column="1">
+        <Button x:Name="btnAIngresos" HorizontalAlignment="Left" Height="170" Margin="489,27,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/monedas.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Ingresos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnADepartamentos" HorizontalAlignment="Left" Height="170" Margin="85,27,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}" Click="btnADepartamentos_Click">
+        <Button x:Name="btnADepartamentos" HorizontalAlignment="Left" Height="170" Margin="85,27,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#3EAF2A" BorderBrush="{x:Null}" Click="btnADepartamentos_Click">
             <StackPanel>
                 <Image Source="/Imagenes/edificio-de-oficinas.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold" Height="35" Width="138"><Run Text="Departamentos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnAInformes" HorizontalAlignment="Left" Height="170" Margin="85,234,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LimeGreen" BorderBrush="{x:Null}" >
+        <Button x:Name="btnAInformes" HorizontalAlignment="Left" Height="170" Margin="85,234,0,0" VerticalAlignment="Top" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="#3EAF2A" BorderBrush="{x:Null}" >
             <StackPanel>
                 <Image Source="/Imagenes/informe.png" Height="97" Width="99" Stretch="Uniform"></Image>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Informes"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnAUsuario" HorizontalAlignment="Left" Height="170" Margin="10,0,0,0" VerticalAlignment="Center" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}" Grid.Column="1">
+        <Button x:Name="btnAUsuario" HorizontalAlignment="Left" Height="170" Margin="288,0,0,0" VerticalAlignment="Center" Width="181" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="LightCoral" BorderBrush="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/usuario.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" Height="43" Width="167" FontWeight="Bold"><Run Language="es-es" Text="Administrar"/><LineBreak/><Run Language="es-es" Text="Usuario"/><LineBreak/><Run Language="es-es"/></TextBlock>

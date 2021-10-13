@@ -1,0 +1,35 @@
+﻿<Controls:MetroWindow x:Class="RealTurismo.VisualizarIngresos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealTurismo"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Icon="Imagenes/informe.png"
+        Title="Turismo Real - Ingresos" Height="450" Width="800">
+    <Grid>
+        <Label Content="Listado Ingresos" HorizontalAlignment="Center" Height="41" VerticalAlignment="Top" Width="171" Background="{x:Null}" FontSize="20" FontWeight="Bold" Margin="0,10,0,0"/>
+        <DataGrid x:Name="dgListadoIngresos" HorizontalAlignment="Left" Height="269" Margin="144,112,0,0" VerticalAlignment="Top" Width="548" Background="WhiteSmoke">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID PAGO"/>
+                <DataGridTextColumn Header="Código Transacción"/>
+                <DataGridTextColumn Header="Fecha"/>
+                <DataGridTextColumn Header="Comentario"/>
+                <DataGridTextColumn Header="Monto"/>
+                <DataGridCheckBoxColumn Header="Estado"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtIdIngreso" HorizontalAlignment="Left" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Id Pago o Multa" Height="30" Margin="326,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" FontSize="14"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Height="30" Margin="600,67,0,0" VerticalAlignment="Top" Width="92"/>
+        <RadioButton Content="ID Multa" HorizontalAlignment="Left" Height="30" Margin="235,67,0,0" VerticalAlignment="Top" Width="91" FontSize="14"/>
+        <RadioButton Content="ID Pago" HorizontalAlignment="Left" Height="30" Margin="144,67,0,0" VerticalAlignment="Top" Width="91" FontSize="14"/>
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="38,386,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click">
+            <StackPanel>
+                <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Controls:MetroWindow>
