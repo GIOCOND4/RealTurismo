@@ -6,9 +6,9 @@ namespace RealTurismo
     /// <summary>
     /// Lógica de interacción para MenuAdministrador.xaml
     /// </summary>
-    public partial class MenuAdministrador : MetroWindow
+    public partial class MenuAdministradorViejo : MetroWindow
     {
-        public MenuAdministrador()
+        public MenuAdministradorViejo()
         {
             InitializeComponent();
         }

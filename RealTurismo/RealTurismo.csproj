@@ -10,8 +10,11 @@
     <None Remove="Imagenes\edificio-de-oficinas.png" />
     <None Remove="Imagenes\flecha.png" />
     <None Remove="Imagenes\informe.png" />
+    <None Remove="Imagenes\Inventario.png" />
     <None Remove="Imagenes\mano.png" />
+    <None Remove="Imagenes\Mantenciones.png" />
     <None Remove="Imagenes\monedas.png" />
+    <None Remove="Imagenes\Servicios.png" />
     <None Remove="Imagenes\usuario.png" />
   </ItemGroup>
 
@@ -31,21 +34,24 @@
     <Resource Include="Imagenes\informe.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imagenes\Inventario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imagenes\mano.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagenes\Mantenciones.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Imagenes\monedas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Imagenes\Servicios.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Imagenes\usuario.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Imagenes\Mantenciones.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

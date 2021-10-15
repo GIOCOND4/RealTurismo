@@ -24,5 +24,11 @@ namespace RealTurismo.Vistas
         {
             InitializeComponent();
         }
+
+        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            AdministrarDepartamentos depto = new AdministrarDepartamentos();
+            depto.Show();
+        }
     }
 }

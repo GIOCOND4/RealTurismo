@@ -50,7 +50,8 @@ namespace RealTurismo
                 {
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
-                    MenuAdministrador menuAdmin = new MenuAdministrador();
+                    Vistas.MenuAdministrador menuAdmin = new Vistas.MenuAdministrador();
+                    //MenuAdministradorViejo menuAdmin = new MenuAdministradorViejo();
                     menuAdmin.ShowDialog();
                     this.Close();
                     conexionOracle.Close();
@@ -59,7 +60,8 @@ namespace RealTurismo
                 {
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
-                    Menu menu = new Menu();
+                    Vistas.MenuEmpleados menu = new Vistas.MenuEmpleados();
+                    //Menu menu = new Menu();
                     menu.ShowDialog();
                     this.Close();
                     conexionOracle.Close();

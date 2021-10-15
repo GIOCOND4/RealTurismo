@@ -16,19 +16,13 @@ using MahApps.Metro.Controls;
 namespace RealTurismo.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para MenuEmpleados.xaml
+    /// Lógica de interacción para AdministrarMantenciones.xaml
     /// </summary>
-    public partial class MenuEmpleados : MetroWindow
+    public partial class AdministrarMantenciones : MetroWindow
     {
-        public MenuEmpleados()
+        public AdministrarMantenciones()
         {
             InitializeComponent();
-        }
-
-        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
-        {
-            AdministrarDepartamentos depto = new AdministrarDepartamentos();
-            depto.Show();
         }
     }
 }
