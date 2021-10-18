@@ -10,38 +10,38 @@
     <Grid>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="40,25,0,0" VerticalAlignment="Top"/>
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="40,55,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="150,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
-        <TextBox HorizontalAlignment="Left" Margin="150,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="62"/>
+        <TextBox x:Name="txtIDDepartamento" HorizontalAlignment="Left" Margin="150,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="150,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="62"/>
         <Label Content="Costo:" HorizontalAlignment="Left" Margin="430,25,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="475,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="txtCosto" HorizontalAlignment="Left" Margin="475,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
         <Label Content="Fecha:" HorizontalAlignment="Left" Margin="430,56,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="475,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Margin="475,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
         <Label Content="Tipo:" HorizontalAlignment="Left" Margin="430,87,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="475,91,0,0" VerticalAlignment="Top" Width="263"/>
+        <ComboBox x:Name="cbbTipo" HorizontalAlignment="Left" Margin="475,91,0,0" VerticalAlignment="Top" Width="263"/>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="150,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335"/>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="268" Margin="40,156,0,0" VerticalAlignment="Top" Width="698" Background="WhiteSmoke" CanUserAddRows="False"/>
+        <TextBox x:Name="txtBuscarID" HorizontalAlignment="Left" Margin="150,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335"/>
+        <DataGrid x:Name="dgListadoMan" HorizontalAlignment="Left" Height="268" Margin="40,156,0,0" VerticalAlignment="Top" Width="698" Background="WhiteSmoke" CanUserAddRows="False"/>
         <Button x:Name="btnBuscarIdDepto" HorizontalAlignment="Left" Height="27" Margin="515,122,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Buscar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnBuscarIdDepto_Copy" HorizontalAlignment="Left" Height="27" Margin="515,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnEditar" HorizontalAlignment="Left" Height="27" Margin="515,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Editar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnBuscarIdDepto_Copy1" HorizontalAlignment="Left" Height="27" Margin="630,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnEliminar" HorizontalAlignment="Left" Height="27" Margin="630,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Eliminar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnBuscarIdDepto_Copy2" HorizontalAlignment="Left" Height="27" Margin="394,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnAgregar" HorizontalAlignment="Left" Height="27" Margin="394,429,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="10" TextAlignment="Center" FontWeight="Bold"><Run Text="Agregar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Height="38" Margin="40,429,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
+        <Button x:Name="btnSalirs" HorizontalAlignment="Left" Height="38" Margin="40,429,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
             </StackPanel>
