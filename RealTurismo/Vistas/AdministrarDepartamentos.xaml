@@ -37,7 +37,7 @@
             </StackPanel>
         </Button>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="471,35,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnBuscarIdDepto" HorizontalAlignment="Left" Height="27" Margin="697,64,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnBuscarIdDepto" HorizontalAlignment="Left" Height="27" Margin="697,64,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" Click="btnBuscarIdDepto_Click">
             <StackPanel>
                 <TextBlock x:Name="btnBuscar" Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Buscar"/></TextBlock>
             </StackPanel>
@@ -62,7 +62,7 @@
         <TextBox x:Name="txtHabitaciones" HorizontalAlignment="Left" Margin="125,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
         <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Margin="125,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
         <TextBox x:Name="txtCosto" HorizontalAlignment="Left" Margin="125,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
-        <ComboBox x:Name="cbbProvincia" HorizontalAlignment="Left" Margin="125,125,0,0" VerticalAlignment="Top" Width="307"/>
+        <ComboBox x:Name="cbbProvincia" HorizontalAlignment="Left" Margin="125,125,0,0" VerticalAlignment="Top" Width="307" SelectionChanged="cbbProvincia_SelectionChanged"/>
         <ComboBox x:Name="cbbComuna" HorizontalAlignment="Left" Margin="125,155,0,0" VerticalAlignment="Top" Width="307"/>
         <TextBox x:Name="txtPiso" HorizontalAlignment="Left" Margin="125,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
         <TextBox x:Name="txtBanios" HorizontalAlignment="Left" Margin="125,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307"/>
@@ -74,14 +74,14 @@
         <CheckBox x:Name="cbAmoblado" HorizontalAlignment="Left" Margin="254,375,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
         <CheckBox x:Name="cbCalefaccion" HorizontalAlignment="Left" Margin="254,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
         <CheckBox x:Name="cbAireAcondicionado" HorizontalAlignment="Center" Margin="0,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
-        <TextBox HorizontalAlignment="Left" Margin="471,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
+        <TextBox x:Name="txtIdDepto" HorizontalAlignment="Left" Margin="471,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
         <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="38" Margin="39,458,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
             </StackPanel>
         </Button>
         <Label Content="Region:" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
-        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="125,95,0,0" VerticalAlignment="Top" Width="307"/>
+        <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="125,95,0,0" VerticalAlignment="Top" Width="307" SelectionChanged="cbbRegion_SelectionChanged"/>
 
 
     </Grid>
