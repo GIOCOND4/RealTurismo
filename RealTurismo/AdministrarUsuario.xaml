@@ -6,9 +6,32 @@
         xmlns:local="clr-namespace:RealTurismo"
         mc:Ignorable="d"
         Title="Turismo Real - Administrar Usuario" Height="450" Width="800">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
     <Grid RenderTransformOrigin="0.525,0.997">
         <Label Content="Rut:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,32,0,0" VerticalAlignment="Top" Height="30"/>
-        <TextBox x:Name="txt_rutUsuario" HorizontalAlignment="Left" Margin="156,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
+        <TextBox Template="{StaticResource TextBoxBaseControlTemplate}" x:Name="txt_rutUsuario" HorizontalAlignment="Left" Margin="156,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Text=""/>
         <Label Content="Perfil:&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="36,65,0,0" VerticalAlignment="Top" Height="30"/>
         <Label Content="Nombre&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="36,98,0,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_nombresUsuario" HorizontalAlignment="Left" Margin="156,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
@@ -28,7 +51,7 @@
         <Button x:Name="btn_buscarRutUsuario" Content="Buscar" HorizontalAlignment="Left" Margin="426,32,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
         <Button x:Name="btn_buscarPerfilUsuario" Content="Buscar" HorizontalAlignment="Left" Margin="426,65,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
         <DataGrid x:Name="dg_listadoUsuarios" Margin="426,105,28,93" Background="WhiteSmoke"/>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click">
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="41" Width="44" Stretch="Uniform"/>
             </StackPanel>

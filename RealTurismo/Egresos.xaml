@@ -15,7 +15,7 @@
         <TextBox x:Name="txt_buscarFechaEgresos" HorizontalAlignment="Left" Margin="251,54,0,0" Controls:TextBoxHelper.Watermark="Buscar por fecha" TextWrapping="Wrap" VerticalAlignment="Top" Width="316"/>
         <Button x:Name="btn_buscarEgresos" Content="Buscar" HorizontalAlignment="Left" Margin="592,54,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
         <DataGrid x:Name="dg_listadoEgresos" Margin="51,117,88,97" Background="WhiteSmoke"/>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click">
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="41" Width="44" Stretch="Uniform"/>
             </StackPanel>

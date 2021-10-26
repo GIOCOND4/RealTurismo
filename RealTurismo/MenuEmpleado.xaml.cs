@@ -36,9 +36,5 @@ namespace RealTurismo
             ingresos.Show();
         }
 
-        private void btnEgresosEmp_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
