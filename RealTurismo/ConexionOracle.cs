@@ -19,9 +19,9 @@ namespace RealTurismo
                 //Creamos la cadena de conexion
                 string cadenaConexionOracle = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=localhost)(PORT=1521))" +
+                    "(HOST=172.31.9.149)(PORT=1521))" +
                     "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = ADMINISTRADOR; Password = admin;";
+                    "User Id = C##_ADMINISTRADOR; Password = administrador;";
                 //Crear conexion
                 OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
                 // Conecta
