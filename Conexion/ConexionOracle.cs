@@ -3,27 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
+using Oracle.ManagedDataAccess.Client; //referencia a oracle, un cliente
+using Oracle.ManagedDataAccess.Types; //referencia a oracle: tipos de dato de oracle
 using System.Windows;
 
-namespace RealTurismo
+namespace Conexion
 {
-    class ConexionOracle
+    public class ConexionOracle
     {
-        public static void ConexionDb()
-        {
-            try
-            {
-                //Creamos la cadena de conexion
-                string cadenaConexionOracle = "Data source=" +
+        OracleConnection conn = null;
+
+        //string de conexion
+        string connectionString = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST=172.31.9.149)(PORT=1521))" +
                     "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
                     "User Id = C##_ADMINISTRADOR; Password = administrador;";
+
+        public ConexionOracle()
+        {
+            if (true)
+            {
+                if (conn == null)
+                {
+                    conn = new OracleConnection(connectionString);
+                }
+
+            }
+        }
+
+        public OracleConnection abrirConexion()
+        {
+            try
+            {
+                conn.Open();
+                return conn;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al abrir la conexion");
+            }
+        }
+
+        public void cerrarConexion()
+        {
+            try
+            {
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al cerrar la conexion");
+            }
+        }
+
+        /*public static void ConexionDb()
+        {
+            try
+            {
+                //Creamos la cadena de conexion
+                
                 //Crear conexion
-                OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                OracleConnection conexionOracle = new OracleConnection(connectionString);
                 // Conecta
                 conexionOracle.Open();
                 MessageBox.Show("Conexion Abierta");
@@ -33,6 +74,6 @@ namespace RealTurismo
                 MessageBox.Show($"Error en la conexion: {ex}");
             }
             
-        }
+        }*/
     }
 }

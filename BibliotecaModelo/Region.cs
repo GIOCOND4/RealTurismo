@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaNegocio
+namespace BibliotecaModelo
 {
-    class Region
+    public class Region
     {
+        public int IdRegion { get; set; }
+        public string Nombre { get; set; }
+
+        //constructor
+        public Region()
+        {
+
+        }
     }
 }

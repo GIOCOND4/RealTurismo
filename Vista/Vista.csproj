@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaControlador\BibliotecaControlador.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Imagenes\edificio-de-oficinas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
