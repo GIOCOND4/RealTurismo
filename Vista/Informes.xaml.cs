@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Vista
 {
     /// <summary>
-    /// Lógica de interacción para AdministrarServicios.xaml
+    /// Lógica de interacción para Informes.xaml
     /// </summary>
-    public partial class AdministrarServicios : Window
+    public partial class Informes : Window
     {
-        public AdministrarServicios()
+        public Informes()
         {
             InitializeComponent();
         }
