@@ -1,46 +1,39 @@
-﻿using MahApps.Metro.Controls;
-using Oracle.ManagedDataAccess.Client;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using Conexion;
+using Oracle.ManagedDataAccess.Client;
 
-namespace RealTurismo
+namespace Vista
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para Login.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class Login : MetroWindow
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-            //Justo despues de iniciar el programa, realizara la conexion
-
         }
-
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             string Usuario = txtUsuario.Text;
             string Contrasenia = pbContrasenia.Password;
-            Contrasenia = Encriptado.GetSHA256(Contrasenia);
+            Contrasenia = BibliotecaModelo.Encriptado.GetSHA256(Contrasenia);
 
-            //el servicename es el nombre de la base de datos
-            //por defecto es orcl
-            string cadenaConexionOracle = "Data source=" +
-                    "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=172.31.9.149)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = SYSTEM; Password = 1234;";
-
-            OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder();
-            builder.DataSource = "172.31.9.149:1521/orcl";
-            builder.UserID = "SYSTEM";
-            builder.PersistSecurityInfo = true;
-            builder.Password = "1234";
-            builder.ConnectionTimeout = 250;
-            //Crear conexion
-            OracleConnection conexionOracle = new OracleConnection(builder.ConnectionString);
-            // Conecta
-            conexionOracle.Open();
+            OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
 
             string query = $"SELECT l.USUARIO,l.CONTRASENIA,pl.descripcion FROM login l " +
                             "Inner Join persona p ON p.id_persona = l.id_persona " +
@@ -58,6 +51,7 @@ namespace RealTurismo
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
                     MenuAdministrador menuAdmin = new MenuAdministrador();
+                    //MenuAdministradorViejo menuAdmin = new MenuAdministradorViejo();
                     menuAdmin.ShowDialog();
                     this.Close();
                     conexionOracle.Close();
@@ -66,7 +60,8 @@ namespace RealTurismo
                 {
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
-                    Menu menu = new Menu();
+                    MenuEmpleados menu = new MenuEmpleados();
+                    //Menu menu = new Menu();
                     menu.ShowDialog();
                     this.Close();
                     conexionOracle.Close();
@@ -89,5 +84,6 @@ namespace RealTurismo
 
 
         }
+
     }
 }

@@ -1,8 +1,8 @@
-﻿<Application x:Class="RealTurismo.App"
+﻿<Application x:Class="Vista.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RealTurismo"
-             StartupUri="AdministrarUsuario.xaml">
+             xmlns:local="clr-namespace:Vista"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
