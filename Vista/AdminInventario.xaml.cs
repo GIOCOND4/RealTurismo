@@ -11,17 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para AdminInventario.xaml
     /// </summary>
-    public partial class AdminInventario : Window
+    public partial class AdminInventario : MetroWindow
     {
         public AdminInventario()
         {
             InitializeComponent();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

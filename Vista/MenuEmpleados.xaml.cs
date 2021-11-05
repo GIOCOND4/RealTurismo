@@ -11,17 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para MenuEmpleados.xaml
     /// </summary>
-    public partial class MenuEmpleados : Window
+    public partial class MenuEmpleados : MetroWindow
     {
         public MenuEmpleados()
         {
             InitializeComponent();
+        }
+
+        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDepartamentos depto = new AdminDepartamentos();
+            depto.Show();
         }
     }
 }

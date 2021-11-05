@@ -11,13 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para AdminServicios.xaml
     /// </summary>
-    public partial class AdminServicios : Window
+    public partial class AdminServicios : MetroWindow
     {
         public AdminServicios()
         {

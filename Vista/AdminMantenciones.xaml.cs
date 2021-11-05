@@ -11,17 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para AdminMantenciones.xaml
     /// </summary>
-    public partial class AdminMantenciones : Window
+    public partial class AdminMantenciones : MetroWindow
     {
         public AdminMantenciones()
         {
             InitializeComponent();
+        }
+
+        private void btnSalirs_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

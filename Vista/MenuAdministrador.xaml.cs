@@ -11,17 +11,24 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para MenuAdministrador.xaml
     /// </summary>
-    public partial class MenuAdministrador : Window
+    public partial class MenuAdministrador : MetroWindow
     {
         public MenuAdministrador()
         {
             InitializeComponent();
+        }
+
+        private void btnDepartamento_Click(object sender, RoutedEventArgs e)
+        {
+            AdminDepartamentos depto = new AdminDepartamentos();
+            depto.Show();
         }
     }
 }

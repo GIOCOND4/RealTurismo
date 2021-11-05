@@ -14,6 +14,7 @@ namespace Conexion
         OracleConnection conn = null;
 
         //string de conexion
+        //el servicename es el nombre de la base de datos por defecto es orcl (en oracle 12)
         string connectionString = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST=172.31.9.149)(PORT=1521))" +
