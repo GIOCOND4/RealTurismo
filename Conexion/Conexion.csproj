@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ConexionOracle.cs~RF6376a64b.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Oracle.ManagedDataAccess" Version="21.3.0" />
   </ItemGroup>
 
