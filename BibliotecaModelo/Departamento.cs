@@ -15,7 +15,7 @@ namespace BibliotecaModelo
         private string _direccion;
         private string _nroDepartamento;
         private int _piso;
-        private long _costo;
+        private int _costo;
         public bool Cable { get; set; }
         public bool Internet { get; set; }
         public bool Calefaccion { get; set; }
@@ -103,7 +103,7 @@ namespace BibliotecaModelo
             }
         }
         
-        public long Costo
+        public int Costo
         {
             get
             {
