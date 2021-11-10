@@ -15,6 +15,7 @@ using MahApps.Metro.Controls;
 using Conexion;
 using BibliotecaControlador;
 using Oracle.ManagedDataAccess.Client;
+using BibliotecaModelo;
 
 namespace Vista
 {
@@ -28,12 +29,12 @@ namespace Vista
             InitializeComponent();
 
             OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
-            string query = "SELECT Descripcion FROM REGION";
+            string query = "SELECT nombre FROM REGION";
             OracleCommand Comando = new OracleCommand(query, conexionOracle);
             OracleDataReader lector = Comando.ExecuteReader();
             while (lector.Read())
             {
-                cbbRegion.Items.Add(lector["Descripcion"].ToString());
+                cbbRegion.Items.Add(lector["nombre"].ToString());
             }
             cbbRegion.SelectedIndex = 0;
             cbbProvincia.SelectedIndex = 0;
@@ -59,7 +60,7 @@ namespace Vista
         }
         private void dgListadoDep_SelectionChanged(object sender, SelectionChangedEventArgs e) //<-----------------se debe hacer con procedimientos almacenados
         {
-            Modelo.Departamentos depto = (Modelo.Departamentos)dgListadoDep.SelectedItem;
+            Departamento depto = (Departamento)dgListadoDep.SelectedItem;
             if (dgListadoDep.SelectedItem != null)
             {
                 txtIdDepto.Text = depto.IdDepartamento.ToString();
@@ -99,7 +100,7 @@ namespace Vista
                 {
                     cbAmoblado.IsChecked = true;
                 }
-                if (depto.AireAcondiconado == false)
+                if (depto.AireAcondicionado == false)
                 {
                     cbAireAcondicionado.IsChecked = false;
                 }
@@ -140,15 +141,15 @@ namespace Vista
 
             string region = cbbRegion.SelectedItem.ToString();
             //cargar provincia
-            string query2 = $"select p.descripcion from provincia p " +
+            string query2 = $"select p.nombre from provincia p " +
                         "inner join region r " +
                         "on r.id_region = p.id_region " +
-                        "where r.descripcion = '" + region + "'";
+                        "where r.nombre = '" + region + "'";
             OracleCommand Comando2 = new OracleCommand(query2, conexionOracle);
             OracleDataReader lector2 = Comando2.ExecuteReader();
             while (lector2.Read())
             {
-                cbbProvincia.Items.Add(lector2["Descripcion"].ToString());
+                cbbProvincia.Items.Add(lector2["nombre"].ToString());
             }
 
             cbbProvincia.SelectedIndex = 0;
@@ -169,15 +170,15 @@ namespace Vista
             {
                 string provincia = cbbProvincia.SelectedItem.ToString();
                 //cargar comunas
-                string query3 = $"select c.descripcion from comuna c " +
+                string query3 = $"select c.nombre from comuna c " +
                                 "inner join provincia p " +
                                 "on p.id_provincia = c.id_provincia " +
-                                "where p.descripcion = '" + provincia + "'";
+                                "where p.nombre = '" + provincia + "'";
                 OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
                 OracleDataReader lector3 = Comando3.ExecuteReader();
                 while (lector3.Read())
                 {
-                    cbbComuna.Items.Add(lector3["Descripcion"].ToString());
+                    cbbComuna.Items.Add(lector3["nombre"].ToString());
                 }
             }
             cbbComuna.SelectedIndex = 0;
@@ -190,7 +191,7 @@ namespace Vista
         {
             try
             {
-                Modelo.Departamentos depto = new Modelo.Departamentos();
+                Departamento depto = new Departamento();
                 depto.NombreDescriptivo = txtNombre.Text;
                 depto.Direccion = txtDireccion.Text;
                 depto.Costo = int.Parse(txtCosto.Text);
@@ -234,11 +235,14 @@ namespace Vista
                     disponible = 1;
                 }
                 string comuna = cbbComuna.SelectedItem.ToString();
-                OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
-                conexionOracle.Open();
+
+                OracleConnection conn = new ConexionOracle().abrirConexion();
+                
+                //OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                //conexionOracle.Open();
                 string buscarIdComuna = "select id_comuna from comuna " +
                     "where descripcion = '" + comuna + "'";
-                OracleCommand Comando = new OracleCommand(buscarIdComuna, conexionOracle);
+                OracleCommand Comando = new OracleCommand(buscarIdComuna, conn);
                 OracleDataReader buscarID = Comando.ExecuteReader();
                 if (buscarID.Read())
                 {
