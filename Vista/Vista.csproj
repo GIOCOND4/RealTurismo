@@ -13,6 +13,8 @@
     <None Remove="Imagenes\mano.png" />
     <None Remove="Imagenes\monedas.png" />
     <None Remove="Imagenes\usuario.png" />
+    <None Remove="listas-de-verificacion.png" />
+    <None Remove="mantenimiento.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +45,8 @@
     <Resource Include="Imagenes\usuario.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="listas-de-verificacion.png" />
+    <Resource Include="mantenimiento.png" />
   </ItemGroup>
 
 </Project>
