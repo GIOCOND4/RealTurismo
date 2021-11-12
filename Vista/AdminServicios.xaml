@@ -11,6 +11,11 @@
 
     <Grid>
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="35,52,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnImagenes" HorizontalAlignment="Left" Height="27" Margin="400,111,0,0" VerticalAlignment="Top" Width="143" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" Click="btnImagenes_Click">
+            <StackPanel>
+                <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Seleccionar"/></TextBlock>
+            </StackPanel>
+        </Button>
         <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="115,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263" Height="86"/>
         <Label Content="ID Reserva:" HorizontalAlignment="Left" Margin="400,20,0,0" VerticalAlignment="Top"/>
         <Label Content="Costo:" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top"/>
@@ -48,6 +53,7 @@
         <CheckBox x:Name="cbDisponible" HorizontalAlignment="Left" Margin="474,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="35,21,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="115,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="263"/>
+        <Image x:Name="pbImagen" HorizontalAlignment="Left" Height="98" Margin="563,84,0,0" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.5,0.48"/>
     </Grid>
 
 </Controls:MetroWindow>

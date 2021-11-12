@@ -13,7 +13,7 @@ namespace BibliotecaControlador
     {
 
         //Agregar Servicio
-        public bool AgregarServicio(string nombre,long costo,int disponible,string descripcion,int id_reserva)
+        public bool AgregarServicio(string nombre,long costo,int disponible,string descripcion,string ubicacion,byte[] foto,int id_reserva)
         {
             try
             {
@@ -25,8 +25,8 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("COSTO", OracleDbType.Int32).Value = costo;
                 comando.Parameters.Add("DISPONIBLE", OracleDbType.Int32).Value = disponible;
                 comando.Parameters.Add("DESCRIPCION", OracleDbType.Varchar2).Value = descripcion;
-                comando.Parameters.Add("UBICACION_FOTO", OracleDbType.Varchar2).Value = null;
-                comando.Parameters.Add("FOTO", OracleDbType.Blob).Value = null;
+                comando.Parameters.Add("UBICACION_FOTO", OracleDbType.Varchar2).Value = ubicacion;
+                comando.Parameters.Add("FOTO", OracleDbType.Blob).Value = foto;
                 comando.Parameters.Add("ID_RESERVA", OracleDbType.Int32).Value = id_reserva;
                 comando.ExecuteNonQuery();
 
@@ -69,14 +69,7 @@ namespace BibliotecaControlador
                     serv.UbicacionFoto = leer["UBICACION_FOTO"].ToString();
                     //serv.Foto = byte.Parse(leer["FOTO"].ToString());
                     //solucion parche
-                    if (leer["FOTO"].ToString() == "")
-                    {
-                        serv.Foto = 0;
-                    }
-                    else
-                    {
-                        serv.Foto = 1;
-                    }
+                    //serv.Foto = (byte[])leer["FOTO"];
                     listServicio.Add(serv);
                 }
                 conexionOracle.Close();
@@ -117,14 +110,7 @@ namespace BibliotecaControlador
                     serv.UbicacionFoto = leer["UBICACION_FOTO"].ToString();
                     //serv.Foto = byte.Parse(leer["FOTO"].ToString());
                     //solucion parche
-                    if (leer["FOTO"].ToString() == "")
-                    {
-                        serv.Foto = 0;
-                    }
-                    else
-                    {
-                        serv.Foto = 1;
-                    }
+                    //serv.Foto = (byte[])leer["FOTO"];
                     listServicio.Add(serv);
                 }
                 conexionOracle.Close();
@@ -154,7 +140,7 @@ namespace BibliotecaControlador
             }
         }
 
-        public bool EditarServicio(int id,string nombre, long costo, int disponible, string descripcion, int id_reserva)
+        public bool EditarServicio(int id,string nombre, long costo, int disponible, string descripcion, string ubicacion, byte[] foto, int id_reserva)
         {
             try
             {
@@ -167,8 +153,8 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("V_COSTO", OracleDbType.Int32).Value = costo;
                 comando.Parameters.Add("V_DISPONIBLE", OracleDbType.Int32).Value = disponible;
                 comando.Parameters.Add("V_DESCRIPCION", OracleDbType.Varchar2).Value = descripcion;
-                comando.Parameters.Add("V_UBICACION_FOTO", OracleDbType.Varchar2).Value = null;
-                comando.Parameters.Add("V_FOTO", OracleDbType.Blob).Value = null;
+                comando.Parameters.Add("V_UBICACION_FOTO", OracleDbType.Varchar2).Value = ubicacion;
+                comando.Parameters.Add("V_FOTO", OracleDbType.Blob).Value = foto;
                 comando.Parameters.Add("V_ID_RESERVA", OracleDbType.Int32).Value = id_reserva;
                 comando.ExecuteNonQuery();
 

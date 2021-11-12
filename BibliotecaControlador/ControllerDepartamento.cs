@@ -250,6 +250,30 @@ namespace BibliotecaControlador
             }
         }
 
+        public bool AñadirFoto(string descripcion,string ubicacion,byte[] foto,int id_depto)
+        {
+            try
+            {
+                OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
+
+                OracleCommand comando = new OracleCommand("INSERTAR_FOTO_DEPTO", conexionOracle);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("V_DESCRIPCION", OracleDbType.Varchar2).Value = descripcion;
+                comando.Parameters.Add("V_UBICACION", OracleDbType.Varchar2).Value = ubicacion;
+                comando.Parameters.Add("V_FOTO", OracleDbType.Blob).Value = foto;
+                comando.Parameters.Add("V_ID_DEPARTAMENTO", OracleDbType.Int32).Value = id_depto;
+                comando.ExecuteNonQuery();
+
+                //se cierrra la conexion a BD
+                conexionOracle.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         //Modificar Depto
         public bool modificarDepto(int id_depto, string nombre, string direccion, string nro_depto, int piso, long costo, int cable, int internet,
             int calefaccion, int amoblado, int aire_acondicionado, int balcon, int nro_habitaciones, int nro_banios,

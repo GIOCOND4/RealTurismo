@@ -16,6 +16,8 @@ using Conexion;
 using BibliotecaControlador;
 using Oracle.ManagedDataAccess.Client;
 using BibliotecaModelo;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Vista
 {
@@ -25,6 +27,8 @@ namespace Vista
     public partial class AdminServicios : MetroWindow
     {
         int idservicio = 0;
+        string imagePath = "";
+        private OpenFileDialog ofdSeleccionar = new OpenFileDialog();
         public AdminServicios()
         {
             InitializeComponent();
@@ -45,11 +49,13 @@ namespace Vista
                     disponible = 1;
                 }
                 serv.Descripcion = txtDescripcion.Text;
+                serv.UbicacionFoto = imagePath;
+                serv.Foto = obtenerByteImagen();
                 ListarServicio listserv = new ListarServicio();
                 listserv.IdReserva = int.Parse(txtIdReserva.Text);
 
                 ControllerServicio controlServicio = new ControllerServicio();
-                bool agregar = controlServicio.AgregarServicio(serv.Nombre, serv.Costo, disponible, serv.Descripcion, listserv.IdReserva);
+                bool agregar = controlServicio.AgregarServicio(serv.Nombre, serv.Costo, disponible, serv.Descripcion, serv.UbicacionFoto, serv.Foto, listserv.IdReserva);
                 if (agregar == true)
                 {
                     MessageBox.Show("El servicio ha sido ingresado con exito");
@@ -58,6 +64,8 @@ namespace Vista
                     txtDescripcion.Text = "";
                     txtIdReserva.Text = "";
                     cbDisponible.IsChecked = false;
+                    imagePath = "";
+                    pbImagen.Source = null;
                 }
                 else
                 {
@@ -111,6 +119,8 @@ namespace Vista
                     cbDisponible.IsChecked = true;
                 }
                 idservicio = serv.IdServicio;
+                
+
             }
         }
 
@@ -135,6 +145,8 @@ namespace Vista
                         txtDescripcion.Text = "";
                         txtIdReserva.Text = "";
                         cbDisponible.IsChecked = false;
+                        imagePath = "";
+                        pbImagen.Source = null;
                     }
                     else
                     {
@@ -163,13 +175,31 @@ namespace Vista
                     disponible = 1;
                 }
                 serv.Descripcion = txtDescripcion.Text;
+                if (imagePath == "")
+                {
+                    serv.UbicacionFoto = "";
+                }
+                else
+                {
+                    serv.UbicacionFoto = imagePath;
+                }
+                if (obtenerByteImagen() == null)
+                {
+                    serv.Foto = null;
+                }
+                else
+                {
+                    serv.Foto = obtenerByteImagen();
+                }
+                
+                
                 ListarServicio listserv = new ListarServicio();
                 listserv.IdReserva = int.Parse(txtIdReserva.Text);
 
                 ControllerServicio controlServicio = new ControllerServicio();
                 if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente servicio? : " + serv.IdServicio, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
-                    bool modificar = controlServicio.EditarServicio(serv.IdServicio, serv.Nombre, serv.Costo, disponible, serv.Descripcion, listserv.IdReserva);
+                    bool modificar = controlServicio.EditarServicio(serv.IdServicio, serv.Nombre, serv.Costo, disponible, serv.Descripcion, serv.UbicacionFoto, serv.Foto, listserv.IdReserva);
                     if (modificar == true)
                     {
                         MessageBox.Show("El servicio ha sido modificado con exito");
@@ -178,6 +208,8 @@ namespace Vista
                         txtDescripcion.Text = "";
                         txtIdReserva.Text = "";
                         cbDisponible.IsChecked = false;
+                        imagePath = "";
+                        pbImagen.Source = null;
                     }
                     else
                     {
@@ -195,6 +227,43 @@ namespace Vista
             {
                 MessageBox.Show("Error : " + ex.Message);
             }
+        }
+
+        private void btnImagenes_Click(object sender, RoutedEventArgs e)
+        {
+            ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png; *.webp;*.jpeg";
+            ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+            ofdSeleccionar.Title = "Seleccionar imagen";
+            ofdSeleccionar.ShowDialog();
+            imagePath = @"" + ofdSeleccionar.FileName;
+
+            byte[] binaryData = obtenerByteRuta(imagePath);
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.StreamSource = new MemoryStream(binaryData);
+            bi.EndInit();
+            pbImagen.Source = bi;
+        }
+
+        protected static byte[] obtenerByteRuta(string imgPath)
+        {
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imgPath);
+            return imageBytes;
+        }
+
+        public byte[] obtenerByteImagen()
+        {
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                var bmp = pbImagen.Source as BitmapImage;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bmp));
+                encoder.Save(ms);
+                arr = ms.ToArray();
+            }
+            return arr;
+
         }
     }
 }

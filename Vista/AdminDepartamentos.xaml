@@ -11,6 +11,7 @@
         Title="Turismo Real - Administrar Departamentos" Height="624" Width="984">
 
     <Grid>
+        <Image x:Name="pbImagen" HorizontalAlignment="Left" Height="76" Margin="316,345,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.48"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top"/>
         <Label Content="Direccion:" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Provincia:" HorizontalAlignment="Left" Margin="35,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
@@ -28,7 +29,7 @@
         <Label Content="Imagen:" HorizontalAlignment="Left" Margin="35,488,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Amoblado:" HorizontalAlignment="Left" Margin="172,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Balcón:" HorizontalAlignment="Left" Margin="170,408,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
-        <Button x:Name="btnImagenes" HorizontalAlignment="Left" Height="27" Margin="122,488,0,0" VerticalAlignment="Top" Width="143" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnImagenes" HorizontalAlignment="Left" Height="27" Margin="122,488,0,0" VerticalAlignment="Top" Width="143" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" Click="btnImagenes_Click">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Seleccionar"/></TextBlock>
             </StackPanel>

@@ -84,7 +84,7 @@ namespace BibliotecaModelo
             }
         }
 
-        public byte Foto { get; set; } //ver si este es el tipo de dato correcto
+        public byte[] Foto { get; set; } //ver si este es el tipo de dato correcto
 
 
 

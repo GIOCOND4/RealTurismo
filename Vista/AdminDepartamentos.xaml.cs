@@ -16,6 +16,8 @@ using Conexion;
 using BibliotecaControlador;
 using Oracle.ManagedDataAccess.Client;
 using BibliotecaModelo;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Vista
 {
@@ -25,11 +27,10 @@ namespace Vista
     public partial class AdminDepartamentos : MetroWindow
     {
         int iddepto = 0;
+        private OpenFileDialog ofdSeleccionar = new OpenFileDialog();
         public AdminDepartamentos()
         {
             InitializeComponent();
-
-            
 
             OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
             string query = "SELECT DESCRIPCION FROM REGION";
@@ -289,7 +290,7 @@ namespace Vista
                     MessageBox.Show("No se pudo ingresar el departamento");
                 }
 
-                
+
 
                 dgListadoDep.ItemsSource = ControlDepto.ListarDepartamentos();
 
@@ -460,6 +461,72 @@ namespace Vista
             {
                 return;
             }
+        }
+
+        private void btnImagenes_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int id = iddepto;
+                if (id > 0)
+                {
+                    ofdSeleccionar.Filter = "Imagenes|*.jpg; *.png; *.webp;*.jpeg";
+                    ofdSeleccionar.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                    ofdSeleccionar.Title = "Seleccionar imagen de departamento : " + id;
+                    ofdSeleccionar.ShowDialog();
+                    Foto foto = new Foto();
+                    foto.Descripcion = @"" + ofdSeleccionar.SafeFileName;
+                    foto.Ubicacion = @"" + ofdSeleccionar.FileName;
+                    foto.Imagen = obtenerByteRuta(foto.Ubicacion);
+                    ControllerDepartamento controldepto = new ControllerDepartamento();
+                    bool añadir = controldepto.AñadirFoto(foto.Descripcion, foto.Ubicacion, foto.Imagen, id);
+                    if (añadir == true)
+                    {
+                        MessageBox.Show("Foto añadida con exito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo ingresar la foto");
+                    }
+
+                    MessageBox.Show(foto.Imagen.ToString());
+                    BitmapImage bi3 = new BitmapImage();
+                    bi3.BeginInit();
+                    bi3.StreamSource = new MemoryStream(foto.Imagen);
+                    bi3.EndInit();
+                    pbImagen.Source = bi3;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione un departamento");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+            }
+            
+
+        }
+
+        protected static byte[] obtenerByteRuta(string imgPath)
+        {
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imgPath);
+            return imageBytes;
+        }
+
+        public byte[] obtenerByteImagen()
+        {
+            byte[] arr;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                var bmp = pbImagen.Source as BitmapImage;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bmp));
+                encoder.Save(ms);
+                arr = ms.ToArray();
+            }
+            return arr;
         }
     }
 }
