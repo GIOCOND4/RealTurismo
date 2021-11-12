@@ -59,7 +59,7 @@ namespace Vista
         }
         private void dgListadoDep_SelectionChanged(object sender, SelectionChangedEventArgs e) //<-----------------se debe hacer con procedimientos almacenados
         {
-            Modelo.Departamentos depto = (Modelo.Departamentos)dgListadoDep.SelectedItem;
+            /*Modelo.Departamentos depto = (Modelo.Departamentos)dgListadoDep.SelectedItem;
             if (dgListadoDep.SelectedItem != null)
             {
                 txtIdDepto.Text = depto.IdDepartamento.ToString();
@@ -128,7 +128,7 @@ namespace Vista
                 }
                 cbbRegion.SelectedIndex = 0;
 
-            }
+            }*/
         }
 
         private void cbbRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -188,7 +188,7 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e) //<-----------------se debe hacer con procedimientos almacenados
         {
-            try
+            /*try
             {
                 Modelo.Departamentos depto = new Modelo.Departamentos();
                 depto.NombreDescriptivo = txtNombre.Text;
@@ -284,7 +284,7 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show("Error : " + ex.Message);
-            }
+            }*/
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e) //<-----------------se debe hacer con procedimientos almacenados

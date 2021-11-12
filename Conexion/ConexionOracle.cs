@@ -17,9 +17,9 @@ namespace Conexion
         //el servicename es el nombre de la base de datos por defecto es orcl (en oracle 12)
         string connectionString = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=172.31.9.149)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = C##_ADMINISTRADOR; Password = administrador;";
+                    "(HOST=localhost)(PORT=1521))" +
+                    "(CONNECT_DATA=(SERVICE_NAME=orcl)));" +
+                    "User Id = C##ADMINISTRADOR; Password = administrador;";
 
         public ConexionOracle()
         {
