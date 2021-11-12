@@ -19,13 +19,13 @@
         </Button>
         <Button x:Name="btnMantenciones" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}">
             <StackPanel>
-                <Image Source="/Imagenes/Mantenciones.png" Height="97" Width="99"/>
+                <Image Source="/Imagenes/mantenimiento.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Mantenciones"/></TextBlock>
             </StackPanel>
         </Button>
         <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="569,36,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
             <StackPanel>
-                <Image Source="/Imagenes/Inventario.png" Height="97" Width="99" Stretch="Uniform"/>
+                <Image Source="/Imagenes/listas-de-verificacion.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Inventario"/></TextBlock>
             </StackPanel>
         </Button>
