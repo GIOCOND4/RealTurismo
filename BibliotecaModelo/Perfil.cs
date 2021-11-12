@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibliotecaModelo
 {
-    class Perfil
+    public class Perfil
     {
+        public int idPerfil { get; set; }
+        public string descripcion { get; set; }
     }
 }
