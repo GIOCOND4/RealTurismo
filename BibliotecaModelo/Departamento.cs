@@ -15,22 +15,8 @@ namespace BibliotecaModelo
         private string _direccion;
         private string _nroDepartamento;
         private int _piso;
-        private int _costo;
-        public bool Cable { get; set; }
-        public bool Internet { get; set; }
-        public bool Calefaccion { get; set; }
-        public bool Amoblado { get; set; }
-        public bool AireAcondicionado { get; set; }
-        public bool Balcon { get; set; }
+        private long _costo;
 
-        private int _nroHabitaciones;
-        private int _nroBanios;
-        private int _cantidadPersonas;
-        public bool Disponible { get; set; }
-        public int IdComuna { get; set; }
-
-
-        //Get y Set con condicional
         public string NombreDescriptivo
         {
             get { return _nombreDescriptivo; }
@@ -45,7 +31,7 @@ namespace BibliotecaModelo
                 {
                     throw new InvalidOperationException("El Nombre del departamento es muy largo o esta vacio");
                 }
-                
+
             }
         }
 
@@ -102,8 +88,8 @@ namespace BibliotecaModelo
                 }
             }
         }
-        
-        public int Costo
+
+        public long Costo
         {
             get
             {
@@ -112,7 +98,7 @@ namespace BibliotecaModelo
 
             set
             {
-                if (value >= 15000 && value <=9999999999)
+                if (value >= 15000 && value <= 9999999999)
                 {
                     _costo = value;
                 }
@@ -123,6 +109,17 @@ namespace BibliotecaModelo
             }
         }
 
+
+        public bool Cable { get; set; }
+        public bool Internet { get; set; }
+        public bool Calefaccion { get; set; }
+        public bool Amoblado { get; set; }
+        public bool AireAcondicionado { get; set; }
+        public bool Balcon { get; set; }
+
+        private int _nroHabitaciones;
+        private int _nroBanios;
+        private int _cantidadPersonas;
         public int NroHabitaciones
         {
             get
@@ -182,12 +179,22 @@ namespace BibliotecaModelo
                 }
             }
         }
+        public bool Disponible { get; set; }
+        public int IdComuna { get; set; }
 
 
-        //Constructor
-        public Departamento()
-        {
+        //Get y Set con condicional
+        
 
-        }
+        
+
+        
+
+
+        ////Constructor
+        //public Departamento()
+        //{
+
+        //}
     }
 }
