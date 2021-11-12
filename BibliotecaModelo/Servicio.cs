@@ -12,14 +12,6 @@ namespace BibliotecaModelo
 
         private string _nombre;
         private long _costo;
-        public bool Disponible { get; set; }
-
-        private string _descripcion;
-
-        private string _ubicacionFoto;
-
-        public byte Foto { get; set; } //ver si este es el tipo de dato correcto
-
 
         //Get y Set con regla de negocio
         public string Nombre
@@ -54,6 +46,12 @@ namespace BibliotecaModelo
             }
         }
 
+        public bool Disponible { get; set; }
+
+        private string _descripcion;
+
+        private string _ubicacionFoto;
+
         public string Descripcion
         {
             get { return _descripcion; }
@@ -86,11 +84,9 @@ namespace BibliotecaModelo
             }
         }
 
+        public byte Foto { get; set; } //ver si este es el tipo de dato correcto
 
-        //constructor
-        public Servicio()
-        {
 
-        }
+
     }
 }
