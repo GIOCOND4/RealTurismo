@@ -31,6 +31,11 @@ namespace Vista
             depto.Show();
         }
 
+        private void btnAUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            AdminUsuario usuario = new AdminUsuario();
+            usuario.Show();
+
         private void btnServicios_Click(object sender, RoutedEventArgs e)
         {
             AdminServicios servicios = new AdminServicios();

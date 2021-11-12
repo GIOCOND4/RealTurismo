@@ -17,27 +17,27 @@
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Departamentos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnMantenciones" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}">
+        <Button x:Name="btnMantenciones" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}" Click="btnMantenciones_Click">
             <StackPanel>
-                <Image Source="/Imagenes/mantenimiento.png" Height="97" Width="99"/>
+                <Image Source="/mantenimiento.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Mantenciones"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="569,36,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="569,36,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnInventario_Click">
             <StackPanel>
-                <Image Source="/Imagenes/listas-de-verificacion.png" Height="97" Width="99" Stretch="Uniform"/>
+                <Image Source="/listas-de-verificacion.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Inventario"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnEgresos" HorizontalAlignment="Left" Height="170" Margin="569,231,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnEgresos" HorizontalAlignment="Left" Height="170" Margin="569,231,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnEgresos_Click">
             <StackPanel>
                 <Image Source="/Imagenes/mano.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Egresos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnIngresos" HorizontalAlignment="Left" Height="170" Margin="47,231,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnIngresos" HorizontalAlignment="Left" Height="170" Margin="47,231,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnIngresos_Click">
             <StackPanel>
-                <Image Source="/Imagenes/monedas.png" Height="97" Width="99" Stretch="Uniform"/>
+                <Image Source="/Imagenes/monedas.png" Height="97" Width="99" Stretch="Uniform" RenderTransformOrigin="0.51,0.5"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Ingresos"/></TextBlock>
             </StackPanel>
         </Button>
