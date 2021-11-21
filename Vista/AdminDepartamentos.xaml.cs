@@ -192,6 +192,7 @@ namespace Vista
             cbbComuna.SelectedIndex = 0;
             ControllerDepartamento depto = new ControllerDepartamento();
             dgListadoDep.ItemsSource = depto.ListarDepartamentos();
+            
         }
 
 
@@ -339,6 +340,7 @@ namespace Vista
                         cbbRegion.SelectedIndex = 0;
                         cbbProvincia.SelectedIndex = 0;
                         cbbComuna.SelectedIndex = 0;
+                        iddepto = 0;
                         MessageBox.Show("El departamento escogido fue eliminado con exito");
                     }
                     else
@@ -438,6 +440,7 @@ namespace Vista
                             cbbRegion.SelectedIndex = 0;
                             cbbProvincia.SelectedIndex = 0;
                             cbbComuna.SelectedIndex = 0;
+                            iddepto = 0;
                             MessageBox.Show("El departamento escogido fue editado con exito");
 
                         }
@@ -528,5 +531,6 @@ namespace Vista
             }
             return arr;
         }
+
     }
 }

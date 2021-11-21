@@ -9,7 +9,7 @@
         mc:Ignorable="d"
     
         Title="Turismo Real - Administrar Inventario" Height="450" Width="800">
-    
+
     <Grid>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="36,32,0,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_idDepartamento" HorizontalAlignment="Left" Margin="156,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
@@ -17,7 +17,7 @@
         <TextBox x:Name="txt_codigoInventario" HorizontalAlignment="Left" Margin="156,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="36,103,0,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_nombreInventario" HorizontalAlignment="Left" Margin="156,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
-        <DataGrid x:Name="dg_listadoInventario" Margin="36,188,28,93" Background="WhiteSmoke"/>
+        <DataGrid x:Name="dg_listadoInventario" Margin="36,188,28,93" Background="WhiteSmoke" CanUserAddRows="False" SelectionChanged="dg_listadoInventario_SelectionChanged"/>
         <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="41" Width="44" Stretch="Uniform"/>
@@ -25,20 +25,16 @@
         </Button>
         <Label Content="ID Departamento:" HorizontalAlignment="Left" Margin="36,142,0,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_idDepartamentoBuscar" HorizontalAlignment="Left" Margin="156,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
-        <Button x:Name="btn_buscarIdDepartamento" Content="Buscar" HorizontalAlignment="Left" Margin="426,142,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
+        <Button x:Name="btn_buscarIdDepartamento" Content="Buscar" HorizontalAlignment="Left" Margin="667,135,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26" Click="btn_buscarIdDepartamento_Click"/>
         <Label Content="Costo:" HorizontalAlignment="Left" Margin="423,105,0,0" VerticalAlignment="Top" Height="30"/>
         <TextBox x:Name="txt_costoInventario" HorizontalAlignment="Left" Margin="543,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="423,31,0,0" VerticalAlignment="Top" Height="30"/>
-        <RichTextBox x:Name="txtBlock_descripcionInventario" Margin="543,35,28,346" >
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <Button x:Name="btn_agregarInventario" Content="Agregar" HorizontalAlignment="Left" Margin="372,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26"/>
-        <Button x:Name="btn_editarInventario" Content="Editar" HorizontalAlignment="Left" Margin="501,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26"/>
-        <Button x:Name="btn_eliminarInventario" Content="Eliminar" HorizontalAlignment="Left" Margin="634,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26"/>
+        <Button x:Name="btn_agregarInventario" Content="Agregar" HorizontalAlignment="Left" Margin="372,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26" Click="btn_agregarInventario_Click"/>
+        <Button x:Name="btn_editarInventario" Content="Editar" HorizontalAlignment="Left" Margin="501,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26" Click="btn_editarInventario_Click"/>
+        <Button x:Name="btn_eliminarInventario" Content="Eliminar" HorizontalAlignment="Left" Margin="634,372,0,0" VerticalAlignment="Top" Width="104" Background="#3151A1" Foreground="White" Height="26" Click="btn_eliminarInventario_Click"/>
+        <Label Content="Disponible:" HorizontalAlignment="Left" Margin="423,138,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbDisponible" HorizontalAlignment="Left" Margin="543,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
+        <TextBox x:Name="txt_descripcion" HorizontalAlignment="Left" Margin="543,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" Height="66"/>
     </Grid>
-    
+
 </Controls:MetroWindow>

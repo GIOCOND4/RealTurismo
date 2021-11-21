@@ -49,4 +49,16 @@
     <Resource Include="mantenimiento.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Imagenes\Inventario.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Imagenes\mantenimiento.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Imagenes\Servicios.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
