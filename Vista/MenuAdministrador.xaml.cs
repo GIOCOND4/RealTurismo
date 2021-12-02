@@ -35,6 +35,7 @@ namespace Vista
         {
             AdminUsuario usuario = new AdminUsuario();
             usuario.Show();
+        }
 
         private void btnServicios_Click(object sender, RoutedEventArgs e)
         {
@@ -46,6 +47,7 @@ namespace Vista
         {
             AdminMantenciones mantenciones = new AdminMantenciones();
             mantenciones.Show();
-        }
-    }
+        }      
+    }    
 }
+
