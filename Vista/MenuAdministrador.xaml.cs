@@ -47,7 +47,15 @@ namespace Vista
         {
             AdminMantenciones mantenciones = new AdminMantenciones();
             mantenciones.Show();
-        }      
-    }    
+
+        }
+
+        private void btnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            AdminInventario inventario = new AdminInventario();
+            inventario.Show();
+        }
+    }
+        
 }
 
