@@ -18,8 +18,8 @@ namespace Conexion
         /*string connectionString = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST=localhost)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = C##ADMINISTRADOR; Password = administrador;";*/
+                    "(CONNECT_DATA=(SERVICE_NAME=orcl)));" +
+                    "User Id = C##_ADMINISTRADOR; Password = administrador;";
 
 
         //Conexion de elise
