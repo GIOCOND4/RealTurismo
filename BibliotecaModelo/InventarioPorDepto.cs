@@ -6,8 +6,29 @@ using System.Threading.Tasks;
 
 namespace BibliotecaModelo
 {
-    public class Inventario
+    public class InventarioPorDepto
     {
+        public int IdDepartamento { get; set; }
+        private string _nombreDescriptivo;
+
+        public string NombreDescriptivo
+        {
+            get { return _nombreDescriptivo; }
+
+            set
+            {
+                if (value.Trim().Length > 0 && value.Length <= 100)
+                {
+                    _nombreDescriptivo = value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("El Nombre del departamento es muy largo o esta vacio");
+                }
+
+            }
+        }
+
         public int IdInventario { get; set; }
 
         private string _codigo;
@@ -81,17 +102,5 @@ namespace BibliotecaModelo
         }
         public bool Disponible { get; set; }
 
-
-        //Get y set con condicional
-        
-
-        
-
-
-        //constructor
-        //public Inventario()
-        //{
-
-        //}
     }
 }
