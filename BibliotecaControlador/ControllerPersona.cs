@@ -101,11 +101,60 @@ namespace BibliotecaControlador
                     PersonaGrid persona = new PersonaGrid();
                     persona.IdPersona = int.Parse(leer["ID_PERSONA"].ToString());
                     persona.RutString = leer["RUT"].ToString();
-                    persona.nombreCompleto = leer["NOMBRE COMPLETO"].ToString();
+                    //persona.nombreCompleto = leer["NOMBRE COMPLETO"].ToString();
+                    persona.nombres = leer["NOMBRES"].ToString();
+                    persona.apellidopat = leer["APELLIDO PATERNO"].ToString();
+                    persona.apellidomat = leer["APELLIDO MATERNO"].ToString();
+                    persona.nombres = leer["NOMBRES"].ToString();
                     persona.correo = leer["CORREO"].ToString();
                     persona.nombrePerfil = leer["PERFIL"].ToString();
                     persona.ActivoEnLetras = leer["ACTIVO"].ToString();
                     persona.nombreUsuario = leer["NOMBRE USUARIO"].ToString();                    
+
+                    listPersonas.Add(persona);
+
+                }
+
+                //se cierra la conexion a la BD cada vez que se abre
+                conexionOracle.Close();
+
+                return listPersonas;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public List<PersonaGrid> ListarPersonasGridPorRut(int rut,string dv)
+        {
+            try
+            {
+                //Crear conexion y conectar
+                OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
+
+                OracleCommand comando = new OracleCommand("BUSCAR_USUARIO_RUT", conexionOracle);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("CURSOR_T", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.Output;
+                comando.Parameters.Add("V_RUT", OracleDbType.Int32).Value = rut;
+                comando.Parameters.Add("V_DV", OracleDbType.Varchar2).Value = dv;
+                OracleDataReader leer = comando.ExecuteReader();
+                List<PersonaGrid> listPersonas = new List<PersonaGrid>();
+                while (leer.Read())
+                {
+                    PersonaGrid persona = new PersonaGrid();
+                    persona.IdPersona = int.Parse(leer["ID_PERSONA"].ToString());
+                    persona.RutString = leer["RUT"].ToString();
+                    //persona.nombreCompleto = leer["NOMBRE COMPLETO"].ToString();
+                    persona.nombres = leer["NOMBRES"].ToString();
+                    persona.apellidopat = leer["APELLIDO PATERNO"].ToString();
+                    persona.apellidomat = leer["APELLIDO MATERNO"].ToString();
+                    persona.nombres = leer["NOMBRES"].ToString();
+                    persona.correo = leer["CORREO"].ToString();
+                    persona.nombrePerfil = leer["PERFIL"].ToString();
+                    persona.ActivoEnLetras = leer["ACTIVO"].ToString();
+                    persona.nombreUsuario = leer["NOMBRE USUARIO"].ToString();
 
                     listPersonas.Add(persona);
 
@@ -187,6 +236,7 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("ACTIVO", OracleDbType.Int32).Value = Int32.Parse(persona.Activo.ToString());
                 comando.Parameters.Add("NOMBRE_USUARIO", OracleDbType.Varchar2).Value = persona.NombreUsuario;
                 comando.Parameters.Add("CONTRASENIA", OracleDbType.Varchar2).Value = Encriptado.GetSHA256(persona.Contrasenia);
+                comando.Parameters.Add("OUT_SALIDA", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
                 comando.ExecuteNonQuery();
 
                 conexionOracle.Close();
@@ -198,6 +248,39 @@ namespace BibliotecaControlador
             catch (Exception e)
             {
                 return false;                
+            }
+        }
+
+        public bool EditarUsuario(Persona persona)
+        {
+            try
+            {
+                OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
+                OracleCommand comando = new OracleCommand("EDITAR_USUARIO", conexionOracle);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("V_ID_PERSONA", OracleDbType.Int32).Value = persona.IdPersona;
+                comando.Parameters.Add("V_RUT", OracleDbType.Int32).Value = persona.Rut2;
+                comando.Parameters.Add("V_DV", OracleDbType.Varchar2).Value = persona.Dv;
+                comando.Parameters.Add("V_NOMBRES", OracleDbType.Varchar2).Value = persona.Nombres;
+                comando.Parameters.Add("V_APELLIDO_PAT", OracleDbType.Varchar2).Value = persona.ApellidoPat;
+                comando.Parameters.Add("V_APELLIDO_MAT", OracleDbType.Varchar2).Value = persona.ApellidoMat;
+                comando.Parameters.Add("V_CORREO", OracleDbType.Varchar2).Value = persona.Correo;
+                comando.Parameters.Add("V_ID_PERFIL", OracleDbType.Int32).Value = persona.IdPerfil;
+                comando.Parameters.Add("V_ACTIVO", OracleDbType.Int32).Value = Int32.Parse(persona.Activo.ToString());
+                comando.Parameters.Add("V_USUARIO", OracleDbType.Varchar2).Value = persona.NombreUsuario;
+                comando.Parameters.Add("V_CONTRASENIA", OracleDbType.Varchar2).Value = Encriptado.GetSHA256(persona.Contrasenia);
+                //comando.Parameters.Add("OUT_SALIDA", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
+                comando.ExecuteNonQuery();
+
+                conexionOracle.Close();
+
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                return false;
             }
         }
 
