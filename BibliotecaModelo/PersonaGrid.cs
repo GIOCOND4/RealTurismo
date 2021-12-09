@@ -10,7 +10,12 @@ namespace BibliotecaModelo
     {
         public int IdPersona { get; set; }
         public string RutString { get; set; }
-        public string nombreCompleto { get; set; }
+        //comentado para ver si se mantiene o se va
+        //public string nombreCompleto { get; set; }
+        //por mientras se mostrara los nombres y apellidos separados
+        public string nombres { get; set; }
+        public string apellidopat { get; set; }
+        public string apellidomat { get; set; }
         public string ActivoEnLetras { get; set; }
         public string correo { get; set; }
         public string nombreUsuario { get; set; }

@@ -15,11 +15,11 @@ namespace Conexion
 
         //string de conexion
         //el servicename es el nombre de la base de datos por defecto es orcl (en oracle 12)
-        /*string connectionString = "Data source=" +
-                    "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=localhost)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVICE_NAME=orcl)));" +
-                    "User Id = C##_ADMINISTRADOR; Password = administrador;";
+        //string connectionString = "Data source=" +
+        //            "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
+        //            "(HOST=localhost)(PORT=1521))" +
+        //            "(CONNECT_DATA=(SERVICE_NAME=orcl)));" +
+        //            "User Id = C##_ADMINISTRADOR; Password = administrador;";
 
 
         //Conexion de elise
@@ -34,7 +34,7 @@ namespace Conexion
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST=localhost)(PORT=1521))" +
                     "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = ADMINISTRADOR; Password = admin;";
+                    "User Id = HOLA; Password = administrador;";
 
         public ConexionOracle()
         {
@@ -72,8 +72,8 @@ namespace Conexion
                 throw new Exception("Error al cerrar la conexion");
             }
         }
-
-        /*public static void ConexionDb()
+        /*
+        public static void ConexionDb()
         {
             try
             {

@@ -346,7 +346,7 @@ namespace BibliotecaControlador
                 //OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
                 //conexionOracle.Open();
                 string buscarIdComuna = "select id_comuna from comuna " +
-                    "where descripcion = '" + comuna + "'";
+                    "where nombre = '" + comuna + "'";
                 OracleCommand Comando = new OracleCommand(buscarIdComuna, conn);
                 OracleDataReader buscarID = Comando.ExecuteReader();
                 if (buscarID.Read())

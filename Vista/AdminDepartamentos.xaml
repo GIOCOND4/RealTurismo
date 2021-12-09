@@ -40,7 +40,7 @@
                 <TextBlock x:Name="btnBuscar" Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Buscar"/></TextBlock>
             </StackPanel>
         </Button>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="314" Margin="471,110,0,0" VerticalAlignment="Top" Width="484" Background="WhiteSmoke" CanUserAddRows="False" SelectionChanged="cbbProvincia_SelectionChanged" />
+        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="314" Margin="471,110,0,0" VerticalAlignment="Top" Width="484" Background="WhiteSmoke" CanUserAddRows="False" SelectionChanged="dgListadoDep_SelectionChanged" />
         <Button x:Name="btnAgregar" HorizontalAlignment="Left" Height="27" Margin="474,452,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" RenderTransformOrigin="0.501,-0.035" Click="btnAgregar_Click">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="10" TextAlignment="Center" FontWeight="Bold"><Run Text="Agregar"/></TextBlock>
