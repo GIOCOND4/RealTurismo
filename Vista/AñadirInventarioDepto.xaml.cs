@@ -11,30 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace Vista
 {
     /// <summary>
-    /// Lógica de interacción para Informes.xaml
+    /// Lógica de interacción para AñadirInventarioDepto.xaml
     /// </summary>
-    public partial class Informes : MetroWindow
+    public partial class AñadirInventarioDepto : Window
     {
-        public Informes()
+        public AñadirInventarioDepto()
         {
             InitializeComponent();
-            
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void btnAtras_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void btn_verInforme_Click(object sender, RoutedEventArgs e)
-        {
-            //Report3.Form1 form = new Report3.Form1();
-            //form.Show();
         }
     }
 }

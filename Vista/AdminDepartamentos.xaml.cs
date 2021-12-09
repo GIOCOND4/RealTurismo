@@ -33,12 +33,12 @@ namespace Vista
             InitializeComponent();
 
             OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
-            string query = "SELECT DESCRIPCION FROM REGION";
+            string query = "SELECT NOMBRE FROM REGION";
             OracleCommand Comando = new OracleCommand(query, conexionOracle);
             OracleDataReader lector = Comando.ExecuteReader();
             while (lector.Read())
             {
-                cbbRegion.Items.Add(lector["DESCRIPCION"].ToString());
+                cbbRegion.Items.Add(lector["NOMBRE"].ToString());
             }
             cbbRegion.SelectedIndex = 0;
             cbbProvincia.SelectedIndex = 0;
@@ -68,6 +68,7 @@ namespace Vista
             Departamento depto = (Departamento)dgListadoDep.SelectedItem;
             if (dgListadoDep.SelectedItem != null)
             {
+                lbl_idDepto.Content = depto.IdDepartamento.ToString();
                 txtIdDepto.Text = depto.NombreDescriptivo.ToString();
                 txtNombre.Text = depto.NombreDescriptivo.ToString();
                 txtDireccion.Text = depto.Direccion.ToString();
@@ -149,15 +150,15 @@ namespace Vista
 
             string region = cbbRegion.SelectedItem.ToString();
             //cargar provincia
-            string query2 = $"select p.descripcion from provincia p " +
+            string query2 = $"select p.NOMBRE from provincia p " +
                         "inner join region r " +
                         "on r.id_region = p.id_region " +
-                        "where r.descripcion = '" + region + "'";
+                        "where r.NOMBRE = '" + region + "'";
             OracleCommand Comando2 = new OracleCommand(query2, conexionOracle);
             OracleDataReader lector2 = Comando2.ExecuteReader();
             while (lector2.Read())
             {
-                cbbProvincia.Items.Add(lector2["DESCRIPCION"].ToString());
+                cbbProvincia.Items.Add(lector2["NOMBRE"].ToString());
             }
 
             cbbProvincia.SelectedIndex = 0;
@@ -178,15 +179,15 @@ namespace Vista
             {
                 string provincia = cbbProvincia.SelectedItem.ToString();
                 //cargar comunas
-                string query3 = $"select c.descripcion from comuna c " +
+                string query3 = $"select c.NOMBRE from comuna c " +
                                 "inner join provincia p " +
                                 "on p.id_provincia = c.id_provincia " +
-                                "where p.descripcion = '" + provincia + "'";
+                                "where p.NOMBRE = '" + provincia + "'";
                 OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
                 OracleDataReader lector3 = Comando3.ExecuteReader();
                 while (lector3.Read())
                 {
-                    cbbComuna.Items.Add(lector3["DESCRIPCION"].ToString());
+                    cbbComuna.Items.Add(lector3["NOMBRE"].ToString());
                 }
             }
             cbbComuna.SelectedIndex = 0;
@@ -532,5 +533,27 @@ namespace Vista
             return arr;
         }
 
+        private void btn_Inventario_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdDepto.Text != "")
+            {
+                string idDepto = lbl_idDepto.Content.ToString();
+                string nombreDepto = txtNombre.Text;
+                string numeroDepto = txtNro_Depto.Text;
+
+                AdminInventarioDepto adminIDepto = new AdminInventarioDepto(idDepto, nombreDepto, numeroDepto);
+                adminIDepto.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un departamento de la lista para editar su inventario.");
+            }
+            
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
