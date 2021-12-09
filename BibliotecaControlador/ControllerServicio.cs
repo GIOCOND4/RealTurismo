@@ -13,7 +13,7 @@ namespace BibliotecaControlador
     {
 
         //Agregar Servicio
-        public bool AgregarServicio(string nombre,long costo,int disponible,string descripcion,string ubicacion,byte[] foto,int id_reserva)
+        public bool AgregarServicio(string nombre,long costo,int disponible,string descripcion,string ubicacion,byte[] foto,int id_reserva,int tiposervicio,int comuna)
         {
             try
             {
@@ -28,6 +28,8 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("UBICACION_FOTO", OracleDbType.Varchar2).Value = ubicacion;
                 comando.Parameters.Add("FOTO", OracleDbType.Blob).Value = foto;
                 comando.Parameters.Add("ID_RESERVA", OracleDbType.Int32).Value = id_reserva;
+                comando.Parameters.Add("TIPO_SERVICIO", OracleDbType.Int32).Value = tiposervicio;
+                comando.Parameters.Add("COMUNA", OracleDbType.Int32).Value = comuna;
                 comando.ExecuteNonQuery();
 
                 //se cierrra la conexion a BD
@@ -86,7 +88,7 @@ namespace BibliotecaControlador
             try
             {
                 OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
-                OracleCommand comando = new OracleCommand("LISTAR_SERVICIO", conexionOracle);
+                OracleCommand comando = new OracleCommand("LISTAR_SERVICIO_POR_ID", conexionOracle);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("CURSOR_T", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.Output;
                 comando.Parameters.Add("V_ID_SERVICIO", OracleDbType.Int32).Value = ID;
@@ -140,7 +142,7 @@ namespace BibliotecaControlador
             }
         }
 
-        public bool EditarServicio(int id,string nombre, long costo, int disponible, string descripcion, string ubicacion, byte[] foto, int id_reserva)
+        public bool EditarServicio(int id,string nombre, long costo, int disponible, string descripcion, string ubicacion, byte[] foto, int id_reserva,int tiposervicio,int comuna)
         {
             try
             {
@@ -156,6 +158,8 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("V_UBICACION_FOTO", OracleDbType.Varchar2).Value = ubicacion;
                 comando.Parameters.Add("V_FOTO", OracleDbType.Blob).Value = foto;
                 comando.Parameters.Add("V_ID_RESERVA", OracleDbType.Int32).Value = id_reserva;
+                comando.Parameters.Add("V_ID_TIPO_SERVICIO", OracleDbType.Int32).Value = tiposervicio;
+                comando.Parameters.Add("V_ID_COMUNA", OracleDbType.Int32).Value = comuna;
                 comando.ExecuteNonQuery();
 
                 //se cierrra la conexion a BD
@@ -166,6 +170,65 @@ namespace BibliotecaControlador
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public int IdTipoServicio(string servicio)
+        {
+            try
+            {
+                OracleConnection conn = new ConexionOracle().abrirConexion();
+
+                //OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                //conexionOracle.Open();
+                string BuscarIdTipoServicio = "select id_tipo_servicio from tipo_servicio " +
+                    "where nombre = '" + servicio + "'";
+                OracleCommand Comando = new OracleCommand(BuscarIdTipoServicio, conn);
+                OracleDataReader buscarID = Comando.ExecuteReader();
+                if (buscarID.Read())
+                {
+                    int id = int.Parse(buscarID.GetString(0));
+                    return id;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
+        }
+
+        public int BuscarComuna(string comuna)
+        {
+            try
+            {
+
+                OracleConnection conn = new ConexionOracle().abrirConexion();
+
+                //OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+                //conexionOracle.Open();
+                string buscarIdComuna = "select id_comuna from comuna " +
+                    "where nombre = '" + comuna + "'";
+                OracleCommand Comando = new OracleCommand(buscarIdComuna, conn);
+                OracleDataReader buscarID = Comando.ExecuteReader();
+                if (buscarID.Read())
+                {
+                    int id = int.Parse(buscarID.GetString(0));
+                    return id;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
 

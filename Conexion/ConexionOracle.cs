@@ -34,7 +34,7 @@ namespace Conexion
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
                     "(HOST=localhost)(PORT=1521))" +
                     "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = ADMINISTRADOR; Password = admin;";
+                    "User Id = HOLA; Password = administrador;";
 
         public ConexionOracle()
         {
