@@ -12,15 +12,7 @@ namespace BibliotecaModelo
         public int IdReserva { get; set; }
 
         private long _montoAnticipo;
-        
-        public DateTime FechaReserva { get; set; } //sacada del sistema
 
-        private DateTime _fechaLlegada;
-        private DateTime _fechaSalida;
-        public int IdEstado { get; set; }
-
-
-        //Get y Set con regla de negocio
         public long MontoAnticipo
         {
             get { return _montoAnticipo; }
@@ -37,6 +29,10 @@ namespace BibliotecaModelo
             }
         }
 
+        public DateTime FechaReserva { get; set; } //sacada del sistema
+
+        private DateTime _fechaLlegada;
+        private DateTime _fechaSalida;
         public DateTime FechaLlegada
         {
             get { return _fechaLlegada; }
@@ -69,11 +65,18 @@ namespace BibliotecaModelo
             }
         }
 
+        public int IdEstado { get; set; }
 
-        //constructor
-        public Reserva()
-        {
 
-        }
+        //Get y Set con regla de negocio
+        
+
+        
+
+        ////constructor
+        //public Reserva()
+        //{
+
+        //}
     }
 }

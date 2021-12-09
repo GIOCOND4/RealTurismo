@@ -11,13 +11,6 @@ namespace BibliotecaModelo
         public int IdInventario { get; set; }
 
         private string _codigo;
-        private string _nombre;
-        private long _costo;
-        private string _descripcion;
-        public bool Disponible { get; set; }
-
-
-        //Get y set con condicional
         public string Codigo
         {
             get { return _codigo; }
@@ -34,6 +27,7 @@ namespace BibliotecaModelo
             }
         }
 
+        private string _nombre;
         public string Nombre
         {
             get { return _nombre; }
@@ -50,10 +44,12 @@ namespace BibliotecaModelo
             }
         }
 
+        private long _costo;
+
         public long Costo
         {
             get { return _costo; }
- 
+
             set
             {
                 if (value > 0 && value <= 9999999999)
@@ -67,6 +63,7 @@ namespace BibliotecaModelo
             }
         }
 
+        private string _descripcion;
         public string Descripcion
         {
             get { return _descripcion; }
@@ -82,12 +79,19 @@ namespace BibliotecaModelo
                 }
             }
         }
+        public bool Disponible { get; set; }
+
+
+        //Get y set con condicional
+        
+
+        
 
 
         //constructor
-        public Inventario()
-        {
+        //public Inventario()
+        //{
 
-        }
+        //}
     }
 }

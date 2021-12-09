@@ -12,11 +12,6 @@ namespace BibliotecaModelo
         public DateTime FechaRegistro { get; set; } //esta fecha se saca del sistema
 
         private DateTime _fechaMantencion;
-        public string Descripcion { get; set; }
-
-        private long _costo;
-        public int IdTipoMantencion { get; set; }
-
 
         //Get y Set con regla de negocio
         public DateTime FechaMantencion
@@ -35,6 +30,9 @@ namespace BibliotecaModelo
             }
         }
 
+        public string Descripcion { get; set; }
+
+        private long _costo;
         public long Costo
         {
             get { return _costo; }
@@ -50,13 +48,19 @@ namespace BibliotecaModelo
                 }
             }
         }
+        public int IdTipoMantencion { get; set; }
 
 
-        //constructor
-        public Mantencion()
-        {
+       
 
-        }
+        
+
+
+        ////constructor
+        //public Mantencion()
+        //{
+
+        //}
 
     }
 }

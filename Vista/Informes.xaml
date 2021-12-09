@@ -12,7 +12,7 @@
     
     <Grid>
         <Label Content="Tipo:&#xA;" HorizontalAlignment="Left" Margin="169,53,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_verInforme" Content="Ver Informe" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
+        <Button x:Name="btn_verInforme" Content="Ver Informe" HorizontalAlignment="Left" Margin="503,54,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26" Click="btn_verInforme_Click"/>
         <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="30,359,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnBack_Click" >
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="41" Width="44" Stretch="Uniform"/>

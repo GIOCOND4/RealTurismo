@@ -17,31 +17,31 @@
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Departamentos"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnMantenciones" HorizontalAlignment="Left" Height="170" Margin="564,10,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}">
+        <Button x:Name="btnMantenciones" HorizontalAlignment="Left" Height="170" Margin="564,10,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}" Click="btnMantenciones_Click">
             <StackPanel>
                 <Image Source="Imagenes/mantenimiento.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Mantenciones"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnAUsuario" HorizontalAlignment="Left" Height="170" Margin="37,10,0,0" VerticalAlignment="Top" Width="182" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnAUsuario" HorizontalAlignment="Left" Height="170" Margin="37,10,0,0" VerticalAlignment="Top" Width="182" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnAUsuario_Click">
             <StackPanel>
                 <Image Source="/Imagenes/usuario.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" Height="43" Width="167" FontWeight="Bold"><Run Language="es-es" Text="Administrar"/><LineBreak/><Run Language="es-es" Text="Usuario"/><LineBreak/><Run Language="es-es"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="38,0,0,0" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="38,0,0,0" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnInventario_Click">
             <StackPanel>
-                <Image Source="/Imagenes/inventario.png" Height="97" Width="99" Stretch="Uniform"/>
+                <Image Source="/Imagenes/Inventario.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Inventario"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnServicios" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnServicios" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnServicios_Click">
             <StackPanel>
                 <Image Source="/Imagenes/Servicios.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Servicios"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnInforme" HorizontalAlignment="Left" Height="170" Margin="564,0,0,0" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}">
+        <Button x:Name="btnInforme" HorizontalAlignment="Left" Height="170" Margin="564,0,0,0" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnInforme_Click">
             <StackPanel>
                 <Image Source="/Imagenes/informe.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold" Height="49"><Run Text="Generar"/><LineBreak/><Run Language="es-es" Text="Informe"/><LineBreak/><Run Language="es-es"/></TextBlock>

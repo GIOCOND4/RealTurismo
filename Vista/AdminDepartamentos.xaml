@@ -11,6 +11,7 @@
         Title="Turismo Real - Administrar Departamentos" Height="624" Width="984">
 
     <Grid>
+        <Image x:Name="pbImagen" HorizontalAlignment="Left" Height="76" Margin="316,345,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.48"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="35,35,0,0" VerticalAlignment="Top"/>
         <Label Content="Direccion:" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Provincia:" HorizontalAlignment="Left" Margin="35,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
@@ -28,7 +29,7 @@
         <Label Content="Imagen:" HorizontalAlignment="Left" Margin="35,488,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Amoblado:" HorizontalAlignment="Left" Margin="172,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <Label Content="Balcón:" HorizontalAlignment="Left" Margin="170,408,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
-        <Button x:Name="btnImagenes" HorizontalAlignment="Left" Height="27" Margin="122,488,0,0" VerticalAlignment="Top" Width="143" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnImagenes" HorizontalAlignment="Left" Height="27" Margin="122,488,0,0" VerticalAlignment="Top" Width="143" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" Click="btnImagenes_Click">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Seleccionar"/></TextBlock>
             </StackPanel>
@@ -39,13 +40,13 @@
                 <TextBlock x:Name="btnBuscar" Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Buscar"/></TextBlock>
             </StackPanel>
         </Button>
-        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="314" Margin="471,110,0,0" VerticalAlignment="Top" Width="484" Background="WhiteSmoke" CanUserAddRows="False" SelectionChanged="dgListadoDep_SelectionChanged"/>
+        <DataGrid x:Name="dgListadoDep" HorizontalAlignment="Left" Height="314" Margin="471,110,0,0" VerticalAlignment="Top" Width="484" Background="WhiteSmoke" CanUserAddRows="False" SelectionChanged="dgListadoDep_SelectionChanged" />
         <Button x:Name="btnAgregar" HorizontalAlignment="Left" Height="27" Margin="474,452,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" RenderTransformOrigin="0.501,-0.035" Click="btnAgregar_Click">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="10" TextAlignment="Center" FontWeight="Bold"><Run Text="Agregar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnEditar" HorizontalAlignment="Left" Height="27" Margin="584,452,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}">
+        <Button x:Name="btnEditar" HorizontalAlignment="Left" Height="27" Margin="584,452,0,0" VerticalAlignment="Top" Width="108" Background="DarkBlue" Style="{StaticResource MahApps.Styles.Button}" Click="btnEditar_Click">
             <StackPanel>
                 <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Editar"/></TextBlock>
             </StackPanel>
@@ -72,7 +73,7 @@
         <CheckBox x:Name="cbCalefaccion" HorizontalAlignment="Left" Margin="254,349,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
         <CheckBox x:Name="cbAireAcondicionado" HorizontalAlignment="Left" Margin="160,446,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.696,1.969"/>
         <TextBox x:Name="txtIdDepto" HorizontalAlignment="Left" Margin="471,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
-        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="38" Margin="39,537,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}">
+        <Button x:Name="btnSalir" HorizontalAlignment="Left" Height="38" Margin="39,537,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}" Click="btnSalir_Click">
             <StackPanel>
                 <Image Source="/Imagenes/flecha.png" Height="28" Width="35" Stretch="Uniform"/>
             </StackPanel>
@@ -80,7 +81,13 @@
         <Label Content="Region:" HorizontalAlignment="Left" Margin="35,95,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
         <ComboBox x:Name="cbbRegion" HorizontalAlignment="Left" Margin="125,95,0,0" VerticalAlignment="Top" Width="307" SelectionChanged="cbbRegion_SelectionChanged"/>
         <Label Content="Nro Departamento:" HorizontalAlignment="Left" Margin="225,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.492,0.819"/>
-        <TextBox x:Name="txtPiso_Copy" HorizontalAlignment="Left" Margin="339,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93"/>
+        <TextBox x:Name="txtNro_Depto" HorizontalAlignment="Left" Margin="339,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93"/>
+        <Button x:Name="btn_Inventario" HorizontalAlignment="Left" Height="27" Margin="846,452,0,0" VerticalAlignment="Top" Width="108" Background="#FF0099A1" Style="{StaticResource MahApps.Styles.Button}" Click="btn_Inventario_Click">
+            <StackPanel>
+                <TextBlock Foreground="White" FontSize="12" TextAlignment="Center" FontWeight="Bold"><Run Text="Inventario"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Label x:Name="lbl_idDepto" Content="Id" HorizontalAlignment="Left" Margin="41,4,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
     </Grid>
 

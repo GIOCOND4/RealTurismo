@@ -10,15 +10,53 @@ namespace BibliotecaModelo
     {
         public int IdPersona { get; set; }
 
-        private int _rut;
+        private int _rut;        
         private string _dv;
         private string _nombres;
         private string _apellidoPat;
         public string ApellidoMat { get; set; }
+        public string NombreCompleto { get; set; }       
 
         private string _correo;
         public int IdPerfil { get; set; }
-        public bool Activo { get; set; } //cuando uno lo cree, vendrá activo por defecto (no creo que deba mostrarse al usuario)
+        public int Activo { get; set; } //cuando uno lo cree, vendrá activo por defecto (no creo que deba mostrarse al usuario)
+
+        private string _nombreUsuario;
+
+        private string _contrasenia;
+
+        public string nombrePerfil { get; set; }
+        public string Contrasenia
+        {
+            get { return _contrasenia; }
+            set {
+                if (value.Trim().Length > 0 && value.Trim().Length < 101)
+                {
+                    _contrasenia = value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("- Campo 'Contraseña' no debe estar vacío");
+                }
+                 }
+        }
+        public int Rut2 { get; set; }
+
+
+        public string NombreUsuario
+        {
+            get { return _nombreUsuario; }
+            set {
+                if (value.Trim().Length > 0 && value.Trim().Length < 21)
+                {
+                    _nombreUsuario = value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("- Campo 'Nombre Usuario' no debe estar vacío");
+                }
+            }
+        }
 
 
         //Get y Set con regla de negocio

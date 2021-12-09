@@ -30,5 +30,38 @@ namespace Vista
             AdminDepartamentos depto = new AdminDepartamentos();
             depto.Show();
         }
+
+        private void btnAUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            AdminUsuario usuario = new AdminUsuario();
+            usuario.Show();
+        }
+
+        private void btnServicios_Click(object sender, RoutedEventArgs e)
+        {
+            AdminServicios servicios = new AdminServicios();
+            servicios.Show();
+        }
+
+        private void btnMantenciones_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMantenciones mantenciones = new AdminMantenciones();
+            mantenciones.Show();
+
+        }
+
+        private void btnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            AdminInventario2 inventario = new AdminInventario2();
+            inventario.Show();
+        }
+
+        private void btnInforme_Click(object sender, RoutedEventArgs e)
+        {
+            //Report3.Form1 form = new Report3.Form1();
+            //form.Show();
+        }
     }
+        
 }
+
