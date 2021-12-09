@@ -267,8 +267,8 @@ namespace BibliotecaControlador
                 comando.Parameters.Add("V_CORREO", OracleDbType.Varchar2).Value = persona.Correo;
                 comando.Parameters.Add("V_ID_PERFIL", OracleDbType.Int32).Value = persona.IdPerfil;
                 comando.Parameters.Add("V_ACTIVO", OracleDbType.Int32).Value = Int32.Parse(persona.Activo.ToString());
-                comando.Parameters.Add("V_USUARIO", OracleDbType.Varchar2).Value = persona.NombreUsuario;
-                comando.Parameters.Add("V_CONTRASENIA", OracleDbType.Varchar2).Value = Encriptado.GetSHA256(persona.Contrasenia);
+                //comando.Parameters.Add("V_USUARIO", OracleDbType.Varchar2).Value = persona.NombreUsuario;
+                //comando.Parameters.Add("V_CONTRASENIA", OracleDbType.Varchar2).Value = Encriptado.GetSHA256(persona.Contrasenia);
                 //comando.Parameters.Add("OUT_SALIDA", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
                 comando.ExecuteNonQuery();
 

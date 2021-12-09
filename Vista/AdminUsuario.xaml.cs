@@ -240,7 +240,7 @@ namespace Vista
                     cbActivo.IsChecked = false;
                 }
                 cbbPerfil.SelectedIndex = 0;
-                txtNombreUsuario.Text = pg.nombreUsuario.ToString();
+                //txtNombreUsuario.Text = pg.nombreUsuario.ToString();
                 idpersona = pg.IdPersona;
 
 
@@ -275,8 +275,8 @@ namespace Vista
                         ApellidoPat = txtApellidoP.Text,
                         ApellidoMat = txtApellidoM.Text,
                         Correo = txtCorreo.Text,
-                        NombreUsuario = txtNombreUsuario.Text,
-                        Contrasenia = pbContrasenia.Password,
+                        //NombreUsuario = txtNombreUsuario.Text,
+                        //Contrasenia = pbContrasenia.Password,
                         IdPerfil = cbbIndexPerfil,
                         Activo = activo,
                     };
