@@ -11,7 +11,9 @@
         Title="Turismo Real - Listado Ingresos/Egresos" Height="450" Width="800">
     <Grid>
         <Label Content="Ingreso" HorizontalAlignment="Left" Margin="71,53,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rb_ingreso" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="124,51,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rb_ingreso" HorizontalAlignment="Left" Margin="124,51,0,0" VerticalAlignment="Top">
+            <RadioButton Content="RadioButton"/>
+        </RadioButton>
         <Label Content="Egresos" HorizontalAlignment="Left" Margin="159,53,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rb_egreso" Content="&#xA;" HorizontalAlignment="Left" Margin="212,51,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_buscarFechaIngresos" HorizontalAlignment="Left" Margin="251,54,0,0" Controls:TextBoxHelper.Watermark="Buscar por nombre de Departamento" TextWrapping="Wrap" VerticalAlignment="Top" Width="316"/>

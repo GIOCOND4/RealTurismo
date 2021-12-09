@@ -68,6 +68,7 @@ namespace Vista
             Departamento depto = (Departamento)dgListadoDep.SelectedItem;
             if (dgListadoDep.SelectedItem != null)
             {
+                lbl_idDepto.Content = depto.IdDepartamento.ToString();
                 txtIdDepto.Text = depto.NombreDescriptivo.ToString();
                 txtNombre.Text = depto.NombreDescriptivo.ToString();
                 txtDireccion.Text = depto.Direccion.ToString();
@@ -153,6 +154,7 @@ namespace Vista
                         "inner join region r " +
                         "on r.id_region = p.id_region " +
                         "where r.nombre = '" + region + "'";
+
             OracleCommand Comando2 = new OracleCommand(query2, conexionOracle);
             OracleDataReader lector2 = Comando2.ExecuteReader();
             while (lector2.Read())
@@ -182,6 +184,7 @@ namespace Vista
                                 "inner join provincia p " +
                                 "on p.id_provincia = c.id_provincia " +
                                 "where p.nombre = '" + provincia + "'";
+
                 OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
                 OracleDataReader lector3 = Comando3.ExecuteReader();
                 while (lector3.Read())
@@ -532,6 +535,27 @@ namespace Vista
             return arr;
         }
 
-        
+        private void btn_Inventario_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtIdDepto.Text != "")
+            {
+                string idDepto = lbl_idDepto.Content.ToString();
+                string nombreDepto = txtNombre.Text;
+                string numeroDepto = txtNro_Depto.Text;
+
+                AdminInventarioDepto adminIDepto = new AdminInventarioDepto(idDepto, nombreDepto, numeroDepto);
+                adminIDepto.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un departamento de la lista para editar su inventario.");
+            }
+            
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

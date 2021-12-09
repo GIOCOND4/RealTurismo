@@ -52,8 +52,14 @@ namespace Vista
 
         private void btnInventario_Click(object sender, RoutedEventArgs e)
         {
-            AdminInventario inventario = new AdminInventario();
+            AdminInventario2 inventario = new AdminInventario2();
             inventario.Show();
+        }
+
+        private void btnInforme_Click(object sender, RoutedEventArgs e)
+        {
+            //Report3.Form1 form = new Report3.Form1();
+            //form.Show();
         }
     }
         

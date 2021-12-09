@@ -52,8 +52,8 @@ namespace Vista
                     pbContrasenia.Password = "";
                     MenuAdministrador menuAdmin = new MenuAdministrador();
                     //MenuAdministradorViejo menuAdmin = new MenuAdministradorViejo();
-                    menuAdmin.ShowDialog();
                     this.Close();
+                    menuAdmin.ShowDialog();                    
                     conexionOracle.Close();
                 }
                 else if (lector.GetString(2) == "Empleado")
@@ -62,8 +62,9 @@ namespace Vista
                     pbContrasenia.Password = "";
                     MenuEmpleados menu = new MenuEmpleados();
                     //Menu menu = new Menu();
-                    menu.ShowDialog();
                     this.Close();
+                    menu.ShowDialog();
+                    
                     conexionOracle.Close();
                 }
                 else
