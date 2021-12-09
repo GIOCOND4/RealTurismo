@@ -1,21 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using System.Data;
+﻿using MahApps.Metro.Controls;
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
+using System.Windows;
 
 namespace RealTurismo
 {
@@ -28,10 +13,10 @@ namespace RealTurismo
         {
             InitializeComponent();
             //Justo despues de iniciar el programa, realizara la conexion
-            
+
         }
 
-        
+
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             string Usuario = txtUsuario.Text;
@@ -42,11 +27,18 @@ namespace RealTurismo
             //por defecto es orcl
             string cadenaConexionOracle = "Data source=" +
                     "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-                    "(HOST=localhost)(PORT=1521))" +
-                    "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-                    "User Id = ADMINISTRADOR; Password = admin;";
+                    "(HOST=172.31.9.149)(PORT=1521))" +
+                    "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=TurismoReal)));" +
+                    "User Id = SYSTEM; Password = 1234;";
+
+            OracleConnectionStringBuilder builder = new OracleConnectionStringBuilder();
+            builder.DataSource = "172.31.9.149:1521/orcl";
+            builder.UserID = "SYSTEM";
+            builder.PersistSecurityInfo = true;
+            builder.Password = "1234";
+            builder.ConnectionTimeout = 250;
             //Crear conexion
-            OracleConnection conexionOracle = new OracleConnection(cadenaConexionOracle);
+            OracleConnection conexionOracle = new OracleConnection(builder.ConnectionString);
             // Conecta
             conexionOracle.Open();
 
@@ -59,13 +51,15 @@ namespace RealTurismo
 
             OracleDataReader lector = Comando.ExecuteReader();
 
-            if(lector.Read())
+            if (lector.Read())
             {
-                if(lector.GetString(2) == "Administrador"){
+                if (lector.GetString(2) == "Administrador")
+                {
                     txtUsuario.Text = "";
                     pbContrasenia.Password = "";
                     MenuAdministrador menuAdmin = new MenuAdministrador();
                     menuAdmin.ShowDialog();
+                    this.Close();
                     conexionOracle.Close();
                 }
                 else if (lector.GetString(2) == "Empleado")
@@ -74,6 +68,7 @@ namespace RealTurismo
                     pbContrasenia.Password = "";
                     Menu menu = new Menu();
                     menu.ShowDialog();
+                    this.Close();
                     conexionOracle.Close();
                 }
                 else
@@ -91,8 +86,8 @@ namespace RealTurismo
                 MessageBox.Show("Las credenciales de usuario y/o contraseña son incorrectas");
                 conexionOracle.Close();
             }
-            
-            
+
+
         }
     }
 }
