@@ -22,14 +22,13 @@ namespace Conexion
                     "User Id = C##_ADMINISTRADOR; Password = administrador;";
 
 
-
-
-        //String Marcelo
+        //String Marcelo2
         //string connectionString = "Data source=" +
-        //            "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
-        //            "(HOST=localhost)(PORT=1521))" +
-        //            "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
-        //            "User Id = ADMINISTRADOR; Password = admin;";
+        //          "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)" +
+        //          "(HOST=localhost)(PORT=1521))" +
+        //          "(CONNECT_DATA=(SERVICE_NAME=TurismoReal)));" +
+        //          "User Id = HOLA; Password = administrador;";
+
 
         public ConexionOracle()
         {
@@ -67,8 +66,8 @@ namespace Conexion
                 throw new Exception("Error al cerrar la conexion");
             }
         }
-
-        /*public static void ConexionDb()
+        /*
+        public static void ConexionDb()
         {
             try
             {

@@ -150,10 +150,11 @@ namespace Vista
 
             string region = cbbRegion.SelectedItem.ToString();
             //cargar provincia
-            string query2 = $"select p.NOMBRE from provincia p " +
+            string query2 = $"select p.nombre from provincia p " +
                         "inner join region r " +
                         "on r.id_region = p.id_region " +
-                        "where r.NOMBRE = '" + region + "'";
+                        "where r.nombre = '" + region + "'";
+
             OracleCommand Comando2 = new OracleCommand(query2, conexionOracle);
             OracleDataReader lector2 = Comando2.ExecuteReader();
             while (lector2.Read())
@@ -179,10 +180,11 @@ namespace Vista
             {
                 string provincia = cbbProvincia.SelectedItem.ToString();
                 //cargar comunas
-                string query3 = $"select c.NOMBRE from comuna c " +
+                string query3 = $"select c.nombre from comuna c " +
                                 "inner join provincia p " +
                                 "on p.id_provincia = c.id_provincia " +
-                                "where p.NOMBRE = '" + provincia + "'";
+                                "where p.nombre = '" + provincia + "'";
+
                 OracleCommand Comando3 = new OracleCommand(query3, conexionOracle);
                 OracleDataReader lector3 = Comando3.ExecuteReader();
                 while (lector3.Read())
@@ -493,7 +495,7 @@ namespace Vista
                         MessageBox.Show("No se pudo ingresar la foto");
                     }
 
-                    MessageBox.Show(foto.Imagen.ToString());
+                    //MessageBox.Show(foto.Imagen.ToString());
                     BitmapImage bi3 = new BitmapImage();
                     bi3.BeginInit();
                     bi3.StreamSource = new MemoryStream(foto.Imagen);
