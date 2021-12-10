@@ -18,8 +18,8 @@
         <Label Content="Editar cantidad:" HorizontalAlignment="Left" Margin="658,157,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txt_cantidad" HorizontalAlignment="Left" Margin="658,191,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92"/>
         <Button x:Name="btn_editar" Content="Editar" HorizontalAlignment="Left" Margin="654,241,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26" Click="btn_editar_Click"/>
-        <Button x:Name="btn_agregar" Content="Agregar" HorizontalAlignment="Left" Margin="372,377,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
-        <Button x:Name="btn_eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="528,377,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26"/>
+        <Button x:Name="btn_agregar" Content="Agregar" HorizontalAlignment="Left" Margin="372,377,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26" Click="btn_agregar_Click"/>
+        <Button x:Name="btn_eliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="528,377,0,0" VerticalAlignment="Top" Width="105" Background="#3151A1" Foreground="White" Height="26" Click="btn_eliminar_Click"/>
         <Button x:Name="btnAtras" HorizontalAlignment="Left" Height="38" Margin="52,373,0,0" VerticalAlignment="Top" Width="47" BorderBrush="{x:Null}" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="btnAtras_Click">
             <Button.RenderTransform>
                 <TransformGroup>
@@ -35,6 +35,7 @@
         </Button>
         <Label x:Name="lbl_idInventario" Content="IdInventario" HorizontalAlignment="Center" Margin="0,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,-0.076" Visibility="Hidden"/>
         <Label x:Name="lbl_dañado" Content="dañado" HorizontalAlignment="Left" Margin="580,14,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="btn_actualizarGrid" Content="Actualizar Lista" HorizontalAlignment="Left" Margin="205,377,0,0" VerticalAlignment="Top" Width="124" Background="#3151A1" Foreground="White" Height="26" Click="btn_actualizarGrid_Click"/>
 
     </Grid>
 </Window>

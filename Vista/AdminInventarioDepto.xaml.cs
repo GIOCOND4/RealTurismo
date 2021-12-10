@@ -89,6 +89,64 @@ namespace Vista
            
         }
 
-        
+        private void btn_agregar_Click(object sender, RoutedEventArgs e)
+        {
+            string idDepto = lbl_idDepto.Content.ToString();
+
+            AñadirInventarioDepto añadir = new AñadirInventarioDepto(idDepto);
+            añadir.Show();
+        }
+
+        private void btn_eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            string idDepto = lbl_idDepto.Content.ToString();
+            string idInventario = lbl_idInventario.Content.ToString();
+
+            if (idDepto == "Id")
+            {
+                MessageBox.Show("Debe seleccionar un ítem del inventario de la lista antes de eliminar.");
+            }
+            else
+            {
+                if (MessageBox.Show("¿Esta seguro que desea eliminar el elemento seleccionado?", "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                {
+                    MessageBox.Show("La eliminación fue cancelada.");
+                }
+                else
+                {
+                    try
+                    {
+                        int eliminar = cid.EliminarInventarioDepto(idDepto, idInventario);
+
+                        if (eliminar == 1)
+                        {
+                            MessageBox.Show("El objeto fue eliminado correctamente.");
+                            txt_cantidad.Text = "0";
+                        }
+                        else
+                        {
+                            MessageBox.Show("No es posible eliminar un objeto dañado del inventario del departamento");
+                            txt_cantidad.Text = "0";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Ocurrió un error al eliminar el objeto");
+                    }
+                    dg_listadoInventario.ItemsSource = cid.ListarInventario(idDepto);
+                }
+            }
+
+
+
+        }
+
+        private void btn_actualizarGrid_Click(object sender, RoutedEventArgs e)
+        {
+            string idDepto = lbl_idDepto.Content.ToString();
+
+            dg_listadoInventario.ItemsSource = cid.ListarInventario(idDepto);
+        }
     }
 }

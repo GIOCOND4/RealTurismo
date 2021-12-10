@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,8 +59,9 @@ namespace Vista
 
         private void btnInforme_Click(object sender, RoutedEventArgs e)
         {
-            //Report3.Form1 form = new Report3.Form1();
-            //form.Show();
+            //Ruta de ubicación del ejecutable del aplicativo reportes
+            string ruta = "C:/Users/ELISE/source/repos/Reportes/Reportes/bin/Debug/Reportes.exe";
+            Process.Start(ruta);
         }
     }
         

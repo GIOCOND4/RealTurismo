@@ -72,5 +72,53 @@ namespace BibliotecaControlador
             }
         }
         
+        public bool AñadirInventarioDepto(string idDepto, string idInventario, string cantidad)
+        {
+            try
+            {
+                OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
+                OracleCommand comando = new OracleCommand("AÑADIR_INVENTARIO_DEPTO", conexionOracle);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("V_ID_DEPTO", OracleDbType.Int32).Value = int.Parse(idDepto);
+                comando.Parameters.Add("V_ID_INVENTARIO", OracleDbType.Int32).Value = int.Parse(idInventario);                
+                comando.Parameters.Add("V_CANTIDAD", OracleDbType.Int32).Value = int.Parse(cantidad);
+                
+                comando.ExecuteNonQuery();                
+
+                conexionOracle.Close();
+                return true;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public int EliminarInventarioDepto (string idDepto, string idInventario)
+        {
+            int variableSalida = 0;
+            try
+            {
+                OracleConnection conexionOracle = new ConexionOracle().abrirConexion();
+                OracleCommand comando = new OracleCommand("ELIMINAR_INVENTARIO_DEPTO", conexionOracle);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("V_ID_DEPTO", OracleDbType.Int32).Value = int.Parse(idDepto);
+                comando.Parameters.Add("V_ID_INVENTARIO", OracleDbType.Int32).Value = int.Parse(idInventario);                
+                comando.Parameters.Add("V_SALIDA", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
+
+                comando.ExecuteScalar();
+
+                variableSalida = int.Parse(comando.Parameters["V_SALIDA"].Value.ToString());
+
+                conexionOracle.Close();
+                return variableSalida;
+            }
+
+            catch (Exception e)
+            {
+                return variableSalida;
+            }
+        }
     }
 }
