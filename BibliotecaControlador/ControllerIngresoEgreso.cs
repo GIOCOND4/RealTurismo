@@ -90,15 +90,15 @@ namespace BibliotecaControlador
                     egreso.idDepto = int.Parse(leer["IDENTIFICADOR"].ToString());
                     egreso.nombreDepto = leer["DEPARTAMENTO"].ToString();
                     egreso.numeroDepto = int.Parse(leer["NUMERO"].ToString());
-                    egreso.montoEgresos = int.Parse(leer["MONTO EGRESOS"].ToString());
-                    egreso.cantidad = int.Parse(leer["CANTIDAD EGRESOS"].ToString());
+                    egreso.montoEgresos = int.Parse(leer["MONTO_EGRESOS"].ToString());
+                    egreso.cantidad = int.Parse(leer["CANTIDAD_EGRESOS"].ToString());
 
                     listaEgresos.Add(egreso);
                 }
                 conexionOracle.Close();
                 return listaEgresos;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
