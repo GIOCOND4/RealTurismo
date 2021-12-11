@@ -63,6 +63,18 @@ namespace Vista
             string ruta = "C:/Users/ELISE/source/repos/Reportes/Reportes/bin/Debug/Reportes.exe";
             Process.Start(ruta);
         }
+
+        private void btnIngresos_Click(object sender, RoutedEventArgs e)
+        {
+            IngresoEgreso ingresoEgreso = new IngresoEgreso();
+            ingresoEgreso.Show();
+        }
+
+        private void btnEgresos_Click(object sender, RoutedEventArgs e)
+        {
+            IngresoEgreso ingresoEgreso = new IngresoEgreso();
+            ingresoEgreso.Show();
+        }
     }
         
 }
