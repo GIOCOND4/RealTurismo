@@ -1,4 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿
+
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -14,8 +16,10 @@
     <None Remove="Imagenes\mano.png" />
     <None Remove="Imagenes\monedas.png" />
     <None Remove="Imagenes\usuario.png" />
+    <None Remove="Inventario.png" />
     <None Remove="listas-de-verificacion.png" />
     <None Remove="mantenimiento.png" />
+    <None Remove="Servicios.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,8 +65,10 @@
     <Resource Include="Imagenes\usuario.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Inventario.png" />
     <Resource Include="listas-de-verificacion.png" />
     <Resource Include="mantenimiento.png" />
+    <Resource Include="Servicios.png" />
   </ItemGroup>
 
   <ItemGroup>

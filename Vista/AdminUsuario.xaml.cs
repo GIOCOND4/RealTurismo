@@ -280,7 +280,7 @@ namespace Vista
                         IdPerfil = cbbIndexPerfil,
                         Activo = activo,
                     };
-                    if (MessageBox.Show("¿Esta seguro que desea modificar el siguiente departamento? : " + persona.IdPersona, "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    if (MessageBox.Show("¿Esta seguro que desea actualizar el usuario seleccionado?", "Advertencia", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
                         bool añadir = cp.EditarUsuario(persona);
                         if (añadir)

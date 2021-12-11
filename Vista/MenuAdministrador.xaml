@@ -8,8 +8,8 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
     
-        Title="Turimo Real - Menú Principal Administrador" Height="621" Width="800">
-    
+        Title="Turimo Real - Menú Principal Administrador" Height="621" Width="800" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Button x:Name="btnDepartamento" HorizontalAlignment="Center" Height="170" Margin="0,10,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}" Click="btnDepartamento_Click">
             <StackPanel>
@@ -19,7 +19,7 @@
         </Button>
         <Button x:Name="btnMantenciones" HorizontalAlignment="Left" Height="170" Margin="564,10,0,0" VerticalAlignment="Top" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue"  BorderBrush="{x:Null}" Click="btnMantenciones_Click">
             <StackPanel>
-                <Image Source="Imagenes/mantenimiento.png" Height="97" Width="99"/>
+                <Image Source="/mantenimiento.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Mantenciones"/></TextBlock>
             </StackPanel>
         </Button>
@@ -31,13 +31,13 @@
         </Button>
         <Button x:Name="btnInventario" HorizontalAlignment="Left" Height="170" Margin="38,0,0,0" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnInventario_Click">
             <StackPanel>
-                <Image Source="/Imagenes/Inventario.png" Height="97" Width="99" Stretch="Uniform"/>
+                <Image Source="/Inventario.png" Height="97" Width="99" Stretch="Uniform"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Inventario"/></TextBlock>
             </StackPanel>
         </Button>
         <Button x:Name="btnServicios" HorizontalAlignment="Center" Height="170" VerticalAlignment="Center" Width="180" Style="{DynamicResource MahApps.Styles.Button.Circle}" Background="DarkBlue" BorderBrush="{x:Null}" Click="btnServicios_Click">
             <StackPanel>
-                <Image Source="/Imagenes/Servicios.png" Height="97" Width="99"/>
+                <Image Source="/Servicios.png" Height="97" Width="99"/>
                 <TextBlock Foreground="White" FontSize="18" TextAlignment="Center" FontWeight="Bold"><Run Text="Servicios"/></TextBlock>
             </StackPanel>
         </Button>
@@ -60,5 +60,5 @@
             </StackPanel>
         </Button>
     </Grid>
-    
+
 </Controls:MetroWindow>

@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     
-        Title="Login" Height="450" Width="800">
+        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     
     <Grid>
         <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Margin="261,161,0,0" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Usuario" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" FontSize="18" Height="36"/>
